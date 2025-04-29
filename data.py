@@ -1,11 +1,11 @@
 import math
 import random
 import networkx as nx
+import numpy as np # Import numpy for float types if needed for printing
 from osm_parser import graph_from_osm # Import the new OSM parser
 
 # --- Constants from Model (for clamping) ---
-# It's slightly better practice to define these in a config or pass them,
-# but let's keep it simple for now and mirror model.py
+# Ensure this matches the value in model.py
 MAX_DISPLACEMENT = 100
 # --- End Constants ---
 
@@ -25,10 +25,10 @@ def sample_paths_for_node(G, node, K=5, L=10):
         list[list[tuple[float, float]]]: A list of paths, where each path is a list of (x, y) coordinates.
     """
     if node not in G:
-        print(f"Warning: Node {node} not found in graph during path sampling.")
+        # print(f"Warning: Node {node} not found in graph during path sampling.") # Can be verbose
         return []
     if 'pos' not in G.nodes[node]:
-         print(f"Warning: Node {node} missing 'pos' attribute.")
+         # print(f"Warning: Node {node} missing 'pos' attribute.") # Can be verbose
          return []
 
     paths_nodes = [] # Store paths as node sequences first
@@ -37,7 +37,14 @@ def sample_paths_for_node(G, node, K=5, L=10):
 
     pos = nx.get_node_attributes(G, 'pos')
 
-    while queue:
+    # Limit BFS depth implicitly by path length check later
+    # Limit queue size or iterations to prevent excessive search on dense graphs if needed
+    bfs_steps = 0
+    max_bfs_steps = G.number_of_nodes() * 2 # Heuristic limit
+
+    while queue and bfs_steps < max_bfs_steps:
+        bfs_steps += 1
+        if not queue: break # Should not happen with the check above, but safety
         curr, path_nodes_rev = queue.pop(0)
 
         # Path length is number of edges, which is len(nodes) - 1
@@ -45,11 +52,18 @@ def sample_paths_for_node(G, node, K=5, L=10):
             continue
 
         # Explore neighbors of the current node in the reversed path search
-        for neighbor in G.neighbors(curr):
+        neighbors = list(G.neighbors(curr))
+        random.shuffle(neighbors) # Add randomness to BFS exploration order
+
+        for neighbor in neighbors:
             # Avoid immediate loops back along the edge we just traversed in BFS
             # Avoid adding nodes already in the current path sequence to ensure acyclic
             edge = tuple(sorted((curr, neighbor)))
             if neighbor in path_nodes_rev or edge in visited_edges:
+                continue
+
+            # Check if neighbor exists and has position
+            if neighbor not in G or 'pos' not in G.nodes[neighbor]:
                 continue
 
             new_path_nodes_rev = [neighbor] + path_nodes_rev
@@ -59,13 +73,14 @@ def sample_paths_for_node(G, node, K=5, L=10):
             paths_nodes.append(list(reversed(new_path_nodes_rev)))
 
             # Add neighbor to the queue for further exploration
-            queue.append((neighbor, new_path_nodes_rev))
+            # Only add if path length allows further steps
+            if len(new_path_nodes_rev) - 1 < L:
+                 queue.append((neighbor, new_path_nodes_rev))
 
-            # Optimization: If we have enough paths already, maybe stop early?
-            # The paper doesn't specify, let BFS complete for potentially diverse paths.
-            # if len(paths_nodes) >= K * 5: # Heuristic limit if needed
-            #     break
-        # if len(paths_nodes) >= K * 5: break # Heuristic limit if needed
+            # Optimization: Stop adding to queue if we already have many candidate paths?
+            if len(paths_nodes) > K * 10: # Stop exploring if we have 10x K paths found
+                 break
+        if len(paths_nodes) > K * 10: break
 
 
     # Convert node paths to coordinate paths and ensure uniqueness
@@ -79,7 +94,7 @@ def sample_paths_for_node(G, node, K=5, L=10):
                 path_coords.append(pos[n])
             else:
                 # This should not happen if graph preprocessing is correct
-                print(f"Warning: Node {n} in path lacks 'pos' attribute. Skipping path.")
+                # print(f"Warning: Node {n} in path lacks 'pos' attribute. Skipping path.")
                 valid_path = False
                 break
         if not valid_path or len(path_coords) < 2: # Need at least 2 points for a delta
@@ -114,6 +129,10 @@ def prepare_training_data_from_graphs(graphs, K=5, L=10):
     data = []
     total_nodes_processed = 0
     nodes_with_neighbors = 0
+    # --- Statistics ---
+    total_deltas_processed = 0
+    deltas_clamped_count = 0
+    # --- End Statistics ---
 
     for G_idx, G in enumerate(graphs):
         print(f"\nProcessing graph {G_idx+1}/{len(graphs)} ({G.number_of_nodes()} nodes, {G.number_of_edges()} edges)")
@@ -135,7 +154,6 @@ def prepare_training_data_from_graphs(graphs, K=5, L=10):
 
             # Check if node has position data
             if node not in pos:
-                 # print(f"Skipping node {node} without position data.") # Can be verbose
                  continue
 
             neighbors = list(G.neighbors(node))
@@ -145,7 +163,6 @@ def prepare_training_data_from_graphs(graphs, K=5, L=10):
             nodes_with_neighbors += 1
 
             # Sample incoming paths ending at this node
-            # Ensure the node itself has 'pos' before sampling
             inc_paths = sample_paths_for_node(G, node, K=K, L=L)
 
             # Determine outgoing edges (deltas) sorted by angle around the node
@@ -153,37 +170,42 @@ def prepare_training_data_from_graphs(graphs, K=5, L=10):
             base_x, base_y = pos[node]
             angles = []
             for nbr in neighbors:
-                 # Ensure neighbor has position data
                  if nbr not in pos:
-                     # print(f"Skipping neighbor {nbr} of node {node} without position data.") # Can be verbose
                      continue
 
-                 dx = pos[nbr][0] - base_x
-                 dy = pos[nbr][1] - base_y
+                 dx_float = pos[nbr][0] - base_x
+                 dy_float = pos[nbr][1] - base_y
 
                  # Calculate angle (counter-clockwise from positive x-axis)
-                 angle = math.atan2(dy, dx)
-                 # Map angle to [0, 2*pi) range
+                 angle = math.atan2(dy_float, dx_float)
                  if angle < 0:
                      angle += 2 * math.pi
-                 angles.append((angle, dx, dy))
+                 angles.append((angle, dx_float, dy_float)) # Keep float deltas for now
 
-            # Sort neighbors by angle (counter-clockwise) - crucial for decoder target sequence
+            # Sort neighbors by angle (counter-clockwise)
             angles.sort(key=lambda x: x[0])
 
-            # Clamp displacements to [-MAX_DISPLACEMENT, MAX_DISPLACEMENT] range as per paper
-            # And convert to integers
-            for _, dx, dy in angles:
-                dx_clamped = int(round(dx))
-                dy_clamped = int(round(dy))
+            # Clamp displacements and convert to integers
+            for _, dx_float, dy_float in angles:
+                total_deltas_processed += 2 # Counting dx and dy separately
+
+                dx_clamped = int(round(dx_float))
+                dy_clamped = int(round(dy_float))
+
+                # Check for clamping before applying it
+                if dx_clamped > MAX_DISPLACEMENT or dx_clamped < -MAX_DISPLACEMENT:
+                    deltas_clamped_count += 1
+                if dy_clamped > MAX_DISPLACEMENT or dy_clamped < -MAX_DISPLACEMENT:
+                    deltas_clamped_count += 1
+
+                # Apply clamping
                 dx_clamped = max(-MAX_DISPLACEMENT, min(MAX_DISPLACEMENT, dx_clamped))
                 dy_clamped = max(-MAX_DISPLACEMENT, min(MAX_DISPLACEMENT, dy_clamped))
+
                 deltas.append((dx_clamped, dy_clamped))
 
             # Add the sample (only if there are outgoing deltas)
             if deltas:
-                 # We need both incoming paths (can be empty if node is a source in sample)
-                 # and outgoing deltas for a valid training sample.
                  data.append((inc_paths, deltas))
 
         print(f"Finished processing graph {G_idx+1}. Found {len(data)} samples so far.")
@@ -192,25 +214,43 @@ def prepare_training_data_from_graphs(graphs, K=5, L=10):
     print(f"Total nodes processed across all graphs: {total_nodes_processed}")
     print(f"Nodes with neighbors (potential samples): {nodes_with_neighbors}")
     print(f"Total training samples generated: {len(data)}")
+
+    # --- Print Statistics ---
+    if total_deltas_processed > 0:
+        clamping_percentage = (deltas_clamped_count / total_deltas_processed) * 100
+        print(f"\nDelta Clamping Statistics (Range [-{MAX_DISPLACEMENT}, {MAX_DISPLACEMENT}]):")
+        print(f"  Total delta values processed (dx + dy): {total_deltas_processed}")
+        print(f"  Number of delta values clamped: {deltas_clamped_count}")
+        print(f"  Clamping Percentage: {clamping_percentage:.2f}%")
+    else:
+        print("\nNo deltas processed, cannot calculate clamping statistics.")
+    # --- End Print Statistics ---
+
+
     if not data:
         print("Warning: No training data was generated. Check graph structures and parameters (K, L).")
     else:
         # Print an example sample
         sample_idx = min(5, len(data)-1) # Print one of the first few samples
-        print("\nExample Sample:")
-        print(f"  Incoming Paths (K={K}, L={L}, {len(data[sample_idx][0])} sampled):")
-        for i, p in enumerate(data[sample_idx][0]):
-            print(f"    Path {i+1} (len {len(p)}): {p[:2]}...{p[-2:]}" if len(p) > 4 else f"    Path {i+1} (len {len(p)}): {p}")
-            if i >= 2: # Print max 3 paths for brevity
-                print("    ...")
-                break
-        print(f"  Outgoing Deltas (Sorted CCW, Clamped [-{MAX_DISPLACEMENT},{MAX_DISPLACEMENT}]): {data[sample_idx][1]}")
+        if sample_idx >= 0: # Ensure data is not empty
+            print("\nExample Sample:")
+            print(f"  Incoming Paths (K={K}, L={L}, {len(data[sample_idx][0])} sampled):")
+            # Use numpy float type for printing if needed, otherwise standard float is fine
+            np_float_type = getattr(np, "float64", float) # Get numpy float64 if available, else use standard float
+            for i, p in enumerate(data[sample_idx][0]):
+                # Format coordinates for printing to avoid excessive precision
+                path_str = ", ".join([f"({coord[0]:.2f}, {coord[1]:.2f})" for coord in p])
+                print(f"    Path {i+1} (len {len(p)}): [{path_str[:100]}...]" if len(path_str) > 100 else f"    Path {i+1} (len {len(p)}): [{path_str}]")
+                if i >= 2: # Print max 3 paths for brevity
+                    print("    ...")
+                    break
+            print(f"  Outgoing Deltas (Sorted CCW, Clamped [-{MAX_DISPLACEMENT},{MAX_DISPLACEMENT}]): {data[sample_idx][1]}")
     print("---------------------------------")
 
     return data
 
 
-# --- ynthetic graph generator for testing/comparison if needed ---
+# --- Synthetic graph generator for testing/comparison if needed ---
 def generate_synthetic_graphs(num_graphs=5, grid_size=5, spacing=20, random_extra_edges=2):
     """
     Generate a list of synthetic planar graphs to simulate road layouts.
@@ -229,10 +269,15 @@ def generate_synthetic_graphs(num_graphs=5, grid_size=5, spacing=20, random_extr
                 node_pos = (i * spacing, j * spacing)
                 G.add_node(node_id)
                 pos_dict[node_id] = node_pos
-                if i < grid_size - 1:  # horizontal edge
-                    G.add_edge(node_id, (i+1, j))
-                if j < grid_size - 1:  # vertical edge
-                    G.add_edge(node_id, (i, j+1))
+                # Add edges only if the neighbor node exists (avoids index errors at boundary)
+                if i < grid_size - 1:  # horizontal edge to the right
+                     neighbor_id = (i+1, j)
+                     if neighbor_id in G: G.add_edge(node_id, neighbor_id)
+                if j < grid_size - 1:  # vertical edge upwards
+                     neighbor_id = (i, j+1)
+                     if neighbor_id in G: G.add_edge(node_id, neighbor_id)
+                # Also add edges to left and down for completeness if desired,
+                # but the above covers all edges once.
 
         nx.set_node_attributes(G, pos_dict, 'pos') # Set positions after creating all nodes
 
@@ -249,11 +294,14 @@ def generate_synthetic_graphs(num_graphs=5, grid_size=5, spacing=20, random_extr
 
             if not G.has_edge(u, v):
                 # Only add if nodes are close (to keep roads local)
-                ux, uy = G.nodes[u]['pos']; vx, vy = G.nodes[v]['pos']
-                # Add edge if distance is less than sqrt(2)*spacing (diagonal) + epsilon
-                if math.hypot(vx - ux, vy - uy) < 1.5 * spacing:
-                    G.add_edge(u, v)
-                    added += 1
+                # Ensure nodes have 'pos' before accessing
+                if 'pos' in G.nodes[u] and 'pos' in G.nodes[v]:
+                    ux, uy = G.nodes[u]['pos']
+                    vx, vy = G.nodes[v]['pos']
+                    # Add edge if distance is less than sqrt(2)*spacing (diagonal) + epsilon
+                    if math.hypot(vx - ux, vy - uy) < 1.5 * spacing:
+                        G.add_edge(u, v)
+                        added += 1
         graphs.append(G)
     print(f"Generated {len(graphs)} synthetic graphs.")
     return graphs

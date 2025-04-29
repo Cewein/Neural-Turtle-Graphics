@@ -1,7 +1,10 @@
 # %% main.py
 import os
 import torch
+import math
+import networkx as nx
 from osm_parser import graph_from_osm
+import random
 from data import prepare_training_data_from_graphs, generate_synthetic_graphs
 from model import NTGModel
 from train import train_ntg, generate_graph
@@ -43,29 +46,30 @@ K_PATHS = 5 # Number of incoming paths to sample (Sec 3.2, 3.5)
 L_PATHS = 10 # Max length of incoming paths (Sec 3.2, 3.5)
 
 # Training Parameters
-EPOCHS = 50 # Adjust as needed (paper doesn't specify, start moderately)
-BATCH_SIZE = 16 # Adjust based on memory
-LEARNING_RATE = 1e-4 # Adjusted learning rate (start lower for potentially complex data)
-WEIGHT_DECAY = 1e-5 # Regularization
-GRAD_CLIP = 1.0
+EPOCHS = 100 # Adjust as needed
+BATCH_SIZE = 256 # Adjust based on memory
+LEARNING_RATE = 1e-3 # Adjusted learning rate (start lower for potentially complex data)
+WEIGHT_DECAY = 1e-4 # Regularization
+GRAD_CLIP = 1.0 # Gradient clipping to prevent exploding gradients
 DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 # Generation Parameters
-MAX_GENERATED_NODES = 200 # Max nodes for the generated graph
+MAX_GENERATED_NODES = 20000 # Max nodes for the generated graph
 GENERATION_K = K_PATHS # Use same K for generation as training
 GENERATION_L = L_PATHS # Use same L for generation as training
 OUTPUT_DIR = "ntg_output" # Directory for saving models and plots
 MODEL_SAVE_PATH = os.path.join(OUTPUT_DIR, "ntg_model.pth")
 GENERATED_GRAPH_PLOT_PATH = "generated_map.png"
 TRAINING_GRAPH_PLOT_PATH = "training_map_example.png"
+MAX_DISPLACEMENT = 100 # Max displacement for edges (in meters)
 
 # --- ADDED: Define some initial edges for generation ---
 # Simple initial structure: root node connects to two other nodes
 # Deltas are (dx, dy) relative to the root node's position (0,0)
 # Let's create one edge going right and one going up.
 INITIAL_GENERATION_EDGES = [
-    (50, 0),  # Node 1: 50m East of root
-    (0, 50)   # Node 2: 50m North of root
+    (0, 0),  # Node 1: 50m East of root
+    (0, 10)   # Node 2: 50m North of root
 ]
 # You can experiment with different initial structures.
 # --- END ADDED ---
@@ -95,7 +99,7 @@ if USE_OSM_DATA:
          print(f"Warning: Found {len(valid_osm_paths)} valid paths out of {len(OSM_FILE_PATHS)} provided.")
 
     for filepath in valid_osm_paths:
-        graph = graph_from_osm(filepath, network_type=OSM_NETWORK_TYPE, simplify=True)
+        graph = graph_from_osm(filepath, network_type=OSM_NETWORK_TYPE, simplify=False)
         if graph and graph.number_of_nodes() > 0:
             all_graphs.append(graph)
         else:
@@ -116,7 +120,7 @@ else:
 
 # %% Plot an example graph from the loaded data
 if all_graphs:
-    plot_graph(all_graphs[5], title="Example Training Graph",
+    plot_graph(all_graphs[0], title="Example Training Graph",
                output_dir=OUTPUT_DIR, filename=TRAINING_GRAPH_PLOT_PATH, show=False)
 
 # %%
@@ -167,7 +171,78 @@ except Exception as e:
     print(f"Error saving model: {e}")
 
 # %%
-# 6. Generate a New Graph
+# 6. Generate a New Graph using a Real Seed
+#
+
+print("\n--- Preparing Real Seed for Generation ---")
+
+start_node_id = None
+start_node_pos = None
+real_initial_deltas = []
+seed_graph = None
+
+# Find the first graph with enough nodes
+for g in all_graphs:
+    if g.number_of_nodes() > K_PATHS: # Ensure graph is somewhat substantial
+        seed_graph = g
+        break
+
+if seed_graph:
+    pos_dict = nx.get_node_attributes(seed_graph, 'pos')
+    candidate_nodes = list(seed_graph.nodes())
+    random.shuffle(candidate_nodes) # Randomize search order
+
+    # Find a starting node with at least 3 neighbors
+    for node_id in candidate_nodes:
+        if seed_graph.degree(node_id) >= 3 and node_id in pos_dict:
+            start_node_id = node_id
+            start_node_pos = pos_dict[start_node_id]
+            break
+
+    if start_node_id:
+        print(f"Selected start node {start_node_id} from graph with {seed_graph.number_of_nodes()} nodes.")
+        base_x, base_y = start_node_pos
+        neighbors = list(seed_graph.neighbors(start_node_id))
+        neighbor_data = []
+        for nbr in neighbors:
+            if nbr in pos_dict:
+                dx_float = pos_dict[nbr][0] - base_x
+                dy_float = pos_dict[nbr][1] - base_y
+                angle = math.atan2(dy_float, dx_float)
+                neighbor_data.append((angle, dx_float, dy_float))
+
+        # Sort neighbors by angle (like in data prep) - not strictly necessary for init, but consistent
+        neighbor_data.sort(key=lambda x: x[0])
+
+        # Calculate clamped integer deltas
+        for _, dx_float, dy_float in neighbor_data:
+            dx_clamped = int(round(dx_float))
+            dy_clamped = int(round(dy_float))
+            # Apply clamping (using MAX_DISPLACEMENT from config/data.py)
+            dx_clamped = max(-MAX_DISPLACEMENT, min(MAX_DISPLACEMENT, dx_clamped))
+            dy_clamped = max(-MAX_DISPLACEMENT, min(MAX_DISPLACEMENT, dy_clamped))
+            # Avoid adding zero deltas if any resulted from rounding/clamping
+            if dx_clamped != 0 or dy_clamped != 0:
+                 real_initial_deltas.append((dx_clamped, dy_clamped))
+
+        print(f"Start node position: ({start_node_pos[0]:.2f}, {start_node_pos[1]:.2f})")
+        print(f"Calculated initial deltas from real neighbors: {real_initial_deltas}")
+    else:
+        print("Warning: Could not find a suitable start node (degree >= 2) in the seed graph.")
+        # Fallback to default start if no suitable node found
+        start_node_pos = (0.0, 0.0)
+        real_initial_deltas = [(50,0), (0,50)] # Fallback to simple edges
+        print("Using default start position (0,0) and simple initial edges.")
+
+else:
+    print("Warning: No suitable seed graph found. Using default start.")
+    # Fallback to default start if no graphs were suitable
+    start_node_pos = (0.0, 0.0)
+    real_initial_deltas = [(50,0), (0,50)] # Fallback to simple edges
+    print("Using default start position (0,0) and simple initial edges.")
+
+# %%
+# 7. Generate a New Graph
 #
 
 # Optional: Load model if needed:
@@ -177,7 +252,8 @@ except Exception as e:
 
 print("\n--- Generating New Road Layout Graph ---")
 generated_G = generate_graph(model,
-                             initial_edges=INITIAL_GENERATION_EDGES, # Use the defined initial edges
+                             start_node_pos=start_node_pos, # Use the position found
+                             initial_edges=real_initial_deltas, # Use the calculated deltas
                              max_nodes=MAX_GENERATED_NODES,
                              K_gen=GENERATION_K,
                              L_gen=GENERATION_L,
@@ -192,3 +268,4 @@ else:
     print("\nGeneration failed or produced an empty graph.")
 
 print("\n--- Script Finished ---")
+# %%
