@@ -9,121 +9,123 @@ from osm_parser import graph_from_osm # Import the new OSM parser
 MAX_DISPLACEMENT = 200
 # --- End Constants ---
 
-def sample_paths_for_node(G, node, K=5, L=10):
+def _perform_random_walk(G, start_node, max_length_L):
     """
-    Sample up to K acyclic incoming paths (length <= L) that terminate at 'node'.
-    Uses breadth-first search outwards from 'node' (reverse direction of travel).
-    Returns a list of paths (each path is a list of node positions from some ancestor to the node).
+    Performs a single random walk backwards from start_node up to max_length_L.
+
+    Args:
+        G (nx.Graph): The input graph.
+        start_node: The node where the incoming path terminates (walk starts here).
+        max_length_L (int): Maximum number of edges in the path.
+
+    Returns:
+        list or None: A list of node IDs representing the path (from ancestor to start_node),
+                      or None if a valid path cannot be formed (e.g., start_node has no neighbors).
+                      Returns path even if shorter than max_length_L if walk gets stuck.
+    """
+    if start_node not in G:
+        return None
+
+    path_nodes_rev = [start_node] # Path stored in reverse (start_node -> ancestor)
+    current_node = start_node
+
+    for _ in range(max_length_L): # Iterate up to L steps (edges)
+        neighbors = list(G.neighbors(current_node))
+
+        # Filter neighbors: exclude the node we just came from (if path has >1 node)
+        # and exclude nodes already in the current path to ensure acyclicity.
+        valid_neighbors = []
+        previous_node = path_nodes_rev[-2] if len(path_nodes_rev) > 1 else None
+        for n in neighbors:
+             # Ensure neighbor exists and has pos (redundant check if graph is clean, but safe)
+            if n not in G or 'pos' not in G.nodes[n]:
+                continue
+            # Avoid immediate backtracking and cycles within the walk
+            if n != previous_node and n not in path_nodes_rev:
+                 valid_neighbors.append(n)
+
+
+        if not valid_neighbors:
+            break # Walk is stuck (dead end or only leads back/into cycle)
+
+        # Choose the next node randomly from valid neighbors
+        next_node = random.choice(valid_neighbors)
+        path_nodes_rev.append(next_node)
+        current_node = next_node
+
+    if len(path_nodes_rev) < 2: # Path needs at least two nodes (one edge)
+        return None
+
+    # Return the path in the correct order (ancestor -> ... -> start_node)
+    return list(reversed(path_nodes_rev))
+
+
+def sample_paths_for_node(G, node, K=5, L=10, max_attempts_factor=5):
+    """
+    Sample up to K unique, acyclic incoming paths (length <= L) that terminate at 'node'
+    using random walks starting from 'node' and moving backwards.
 
     Args:
         G (nx.Graph): The input graph with 'pos' attributes for nodes.
         node: The target node to find incoming paths for.
-        K (int): Maximum number of paths to sample.
-        L (int): Maximum length of each path (number of edges).
+        K (int): Maximum number of unique paths to sample.
+        L (int): Maximum length (number of edges) of each path.
+        max_attempts_factor (int): Factor to determine max attempts (K * factor) to find unique paths.
 
     Returns:
-        list[list[tuple[float, float]]]: A list of paths, where each path is a list of (x, y) coordinates.
+        list[list[tuple[float, float]]]: A list of unique paths, where each path is a list of (x, y) coordinates.
     """
-    if node not in G:
-        # print(f"Warning: Node {node} not found in graph during path sampling.") # Can be verbose
+    if node not in G or 'pos' not in G.nodes[node]:
         return []
-    if 'pos' not in G.nodes[node]:
-         # print(f"Warning: Node {node} missing 'pos' attribute.") # Can be verbose
-         return []
-
-    paths_nodes = [] # Store paths as node sequences first
-    queue = [(node, [node])] # (current_node_in_bfs, path_so_far_reversed)
-    visited_edges = set() # To avoid trivial back-and-forth cycles in BFS
 
     pos = nx.get_node_attributes(G, 'pos')
+    unique_paths_nodes = set() # Store tuples of node IDs to ensure uniqueness
+    max_attempts = K * max_attempts_factor
+    attempts = 0
 
-    # Limit BFS depth implicitly by path length check later
-    # Limit queue size or iterations to prevent excessive search on dense graphs if needed
-    bfs_steps = 0
-    max_bfs_steps = G.number_of_nodes() * 2 # Heuristic limit
+    while len(unique_paths_nodes) < K and attempts < max_attempts:
+        attempts += 1
+        path_nodes = _perform_random_walk(G, node, L)
 
-    while queue and bfs_steps < max_bfs_steps:
-        bfs_steps += 1
-        if not queue: break # Should not happen with the check above, but safety
-        curr, path_nodes_rev = queue.pop(0)
+        if path_nodes:
+            # Add the tuple representation of the node path to the set
+            unique_paths_nodes.add(tuple(path_nodes))
 
-        # Path length is number of edges, which is len(nodes) - 1
-        if len(path_nodes_rev) - 1 >= L:
-            continue
-
-        # Explore neighbors of the current node in the reversed path search
-        neighbors = list(G.neighbors(curr))
-        random.shuffle(neighbors) # Add randomness to BFS exploration order
-
-        for neighbor in neighbors:
-            # Avoid immediate loops back along the edge we just traversed in BFS
-            # Avoid adding nodes already in the current path sequence to ensure acyclic
-            edge = tuple(sorted((curr, neighbor)))
-            if neighbor in path_nodes_rev or edge in visited_edges:
-                continue
-
-            # Check if neighbor exists and has position
-            if neighbor not in G or 'pos' not in G.nodes[neighbor]:
-                continue
-
-            new_path_nodes_rev = [neighbor] + path_nodes_rev
-            visited_edges.add(edge) # Mark edge as visited for this BFS expansion direction
-
-            # Store the path in the correct order (ancestor -> ... -> node)
-            paths_nodes.append(list(reversed(new_path_nodes_rev)))
-
-            # Add neighbor to the queue for further exploration
-            # Only add if path length allows further steps
-            if len(new_path_nodes_rev) - 1 < L:
-                 queue.append((neighbor, new_path_nodes_rev))
-
-            # Optimization: Stop adding to queue if we already have many candidate paths?
-            if len(paths_nodes) > K * 10: # Stop exploring if we have 10x K paths found
-                 break
-        if len(paths_nodes) > K * 10: break
-
-
-    # Convert node paths to coordinate paths and ensure uniqueness
-    unique_paths_coords = []
-    seen_coord_tuples = set()
-    for p_nodes in paths_nodes:
+    # Convert unique node paths to coordinate paths
+    final_paths_coords = []
+    for p_nodes_tuple in unique_paths_nodes:
         path_coords = []
         valid_path = True
-        for n in p_nodes:
+        for n in p_nodes_tuple:
+            # Check if node still exists and has position (should be true if walk succeeded)
             if n in pos:
                 path_coords.append(pos[n])
             else:
-                # This should not happen if graph preprocessing is correct
-                # print(f"Warning: Node {n} in path lacks 'pos' attribute. Skipping path.")
+                # print(f"Warning: Node {n} in sampled path lacks 'pos'. Skipping path.")
                 valid_path = False
                 break
-        if not valid_path or len(path_coords) < 2: # Need at least 2 points for a delta
-            continue
+        if valid_path and len(path_coords) >= 2: # Ensure path has at least one edge
+            final_paths_coords.append(path_coords)
 
-        # Use tuple of tuples for hashing coordinates to check uniqueness
-        path_coord_tuple = tuple(path_coords)
-        if path_coord_tuple not in seen_coord_tuples:
-            seen_coord_tuples.add(path_coord_tuple)
-            unique_paths_coords.append(path_coords) # Store as list of tuples
+    # Note: We might return fewer than K paths if walks fail or duplicates are frequent.
+    return final_paths_coords
 
-    # Shuffle and limit to K paths
-    random.shuffle(unique_paths_coords)
-    return unique_paths_coords[:K]
 
 def prepare_training_data_from_graphs(graphs, K=5, L=10):
     """
     Prepare training samples from a list of NetworkX graphs.
     Assumes graphs have nodes with 'pos' attribute containing (x, y) coordinates in meters.
+    Uses random walk sampling for incoming paths.
 
     Args:
         graphs (list[nx.Graph]): List of graphs loaded (e.g., from OSM).
-        K (int): Max number of incoming paths to sample per node.
+        K (int): Max number of unique incoming paths to sample per node via random walk.
         L (int): Max length of sampled incoming paths.
 
     Returns:
         list[tuple]: A list of training samples, where each sample is:
                      (incoming_paths, outgoing_deltas)
-                     - incoming_paths: list[list[tuple[float, float]]]
+                     - incoming_paths: list[list[tuple[float, float]]] (from random walks)
                      - outgoing_deltas: list[tuple[int, int]] (clamped dx, dy sorted CCW)
     """
     data = []
@@ -162,8 +164,9 @@ def prepare_training_data_from_graphs(graphs, K=5, L=10):
 
             nodes_with_neighbors += 1
 
-            # Sample incoming paths ending at this node
+            # --- MODIFIED PART: Use random walk sampling ---
             inc_paths = sample_paths_for_node(G, node, K=K, L=L)
+            # --- END MODIFICATION ---
 
             # Determine outgoing edges (deltas) sorted by angle around the node
             deltas = []
@@ -205,12 +208,14 @@ def prepare_training_data_from_graphs(graphs, K=5, L=10):
                 deltas.append((dx_clamped, dy_clamped))
 
             # Add the sample (only if there are outgoing deltas)
+            # Note: We might still add a sample even if inc_paths is empty,
+            # allowing the model to learn generation from minimal history.
             if deltas:
                  data.append((inc_paths, deltas))
 
         print(f"Finished processing graph {G_idx+1}. Found {len(data)} samples so far.")
 
-    print(f"\n--- Data Preparation Summary ---")
+    print(f"\n--- Data Preparation Summary (using Random Walks) ---")
     print(f"Total nodes processed across all graphs: {total_nodes_processed}")
     print(f"Nodes with neighbors (potential samples): {nodes_with_neighbors}")
     print(f"Total training samples generated: {len(data)}")
@@ -233,7 +238,7 @@ def prepare_training_data_from_graphs(graphs, K=5, L=10):
         # Print an example sample
         sample_idx = min(5, len(data)-1) # Print one of the first few samples
         if sample_idx >= 0: # Ensure data is not empty
-            print("\nExample Sample:")
+            print("\nExample Sample (using Random Walks):")
             print(f"  Incoming Paths (K={K}, L={L}, {len(data[sample_idx][0])} sampled):")
             # Use numpy float type for printing if needed, otherwise standard float is fine
             np_float_type = getattr(np, "float64", float) # Get numpy float64 if available, else use standard float
@@ -259,7 +264,6 @@ def generate_synthetic_graphs(num_graphs=5, grid_size=5, spacing=20, random_extr
     """
     print(f"\nGenerating {num_graphs} synthetic grid graphs ({grid_size}x{grid_size})...")
     graphs = []
-
     for _ in range(num_graphs):
         G = nx.Graph()
         pos_dict = {}
