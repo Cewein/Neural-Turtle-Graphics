@@ -259,50 +259,49 @@ def generate_synthetic_graphs(num_graphs=5, grid_size=5, spacing=20, random_extr
     """
     print(f"\nGenerating {num_graphs} synthetic grid graphs ({grid_size}x{grid_size})...")
     graphs = []
+
     for _ in range(num_graphs):
         G = nx.Graph()
         pos_dict = {}
-        # Create grid nodes and edges (4-neighbor connectivity)
+
+        # 1) Create all grid nodes
         for i in range(grid_size):
             for j in range(grid_size):
                 node_id = (i, j)
-                node_pos = (i * spacing, j * spacing)
+                pos_dict[node_id] = (i * spacing, j * spacing)
                 G.add_node(node_id)
-                pos_dict[node_id] = node_pos
-                # Add edges only if the neighbor node exists (avoids index errors at boundary)
-                if i < grid_size - 1:  # horizontal edge to the right
-                     neighbor_id = (i+1, j)
-                     if neighbor_id in G: G.add_edge(node_id, neighbor_id)
-                if j < grid_size - 1:  # vertical edge upwards
-                     neighbor_id = (i, j+1)
-                     if neighbor_id in G: G.add_edge(node_id, neighbor_id)
-                # Also add edges to left and down for completeness if desired,
-                # but the above covers all edges once.
 
-        nx.set_node_attributes(G, pos_dict, 'pos') # Set positions after creating all nodes
+        # 2) Add the 4‐neighbour grid edges
+        for i in range(grid_size):
+            for j in range(grid_size):
+                node_id = (i, j)
+                if i < grid_size - 1:
+                    G.add_edge(node_id, (i + 1, j))
+                if j < grid_size - 1:
+                    G.add_edge(node_id, (i, j + 1))
 
-        # Add random extra edges to introduce cycles/diagonals
+        # 3) Attach positions
+        nx.set_node_attributes(G, pos_dict, 'pos')
+
+        # 4) Sprinkle in a few random “short” edges
         nodes = list(G.nodes())
         added = 0
         attempts = 0
-        max_attempts = random_extra_edges * 10 # Avoid infinite loops if graph is small
+        max_attempts = random_extra_edges * 10
 
         while added < random_extra_edges and attempts < max_attempts:
             attempts += 1
-            if len(nodes) < 2: break # Need at least 2 nodes
-            u, v = random.sample(nodes, 2) # Use random.sample to ensure u != v
-
+            u, v = random.sample(nodes, 2)
             if not G.has_edge(u, v):
-                # Only add if nodes are close (to keep roads local)
-                # Ensure nodes have 'pos' before accessing
-                if 'pos' in G.nodes[u] and 'pos' in G.nodes[v]:
-                    ux, uy = G.nodes[u]['pos']
-                    vx, vy = G.nodes[v]['pos']
-                    # Add edge if distance is less than sqrt(2)*spacing (diagonal) + epsilon
-                    if math.hypot(vx - ux, vy - uy) < 1.5 * spacing:
-                        G.add_edge(u, v)
-                        added += 1
+                ux, uy = G.nodes[u]['pos']
+                vx, vy = G.nodes[v]['pos']
+                # only add if “nearby” (within about diagonal + a bit)
+                if math.hypot(vx - ux, vy - uy) < 1.5 * spacing:
+                    G.add_edge(u, v)
+                    added += 1
+
         graphs.append(G)
+
     print(f"Generated {len(graphs)} synthetic graphs.")
     return graphs
 

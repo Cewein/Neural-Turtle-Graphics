@@ -16,7 +16,7 @@ from visualisation import plot_graph
 
 # Data Loading
 # USE_OSM_DATA = True # Set to True to load from OSM files, False for synthetic data
-USE_OSM_DATA = True # Set to True to load from OSM files, False for synthetic data
+USE_OSM_DATA = False # Set to True to load from OSM files, False for synthetic data
 OSM_FILE_PATHS = [
     # !!! IMPORTANT !!!
     # Add the full paths to your .osm files here
@@ -26,25 +26,25 @@ OSM_FILE_PATHS = [
 OSM_NETWORK_TYPE = 'Drive' # Type of network to extract ('drive', 'walk', 'bike', 'all')
 
 # Synthetic Data Generation (if USE_OSM_DATA = False)
-NUM_SYNTHETIC_GRAPHS = 5
+NUM_SYNTHETIC_GRAPHS = 1
 GRID_SIZE = 10
 SPACING = 20
 RANDOM_EDGES = 0
 
 # Data Preparation Parameters (from paper/model)
-K_PATHS = 3 # Number of incoming paths to sample (Sec 3.2, 3.5)
-L_PATHS = 5 # Max length of incoming paths (Sec 3.2, 3.5)
+K_PATHS = 5 # Number of incoming paths to sample (Sec 3.2, 3.5)
+L_PATHS = 7 # Max length of incoming paths (Sec 3.2, 3.5)
 
 # Training Parameters
 EPOCHS = 100 # Adjust as needed
-BATCH_SIZE = 256 # Adjust based on memory
+BATCH_SIZE = 128 # Adjust based on memory
 LEARNING_RATE = 1e-3 # Adjusted learning rate (start lower for potentially complex data)
 WEIGHT_DECAY = 1e-4 # Regularization
 GRAD_CLIP = 1.0 # Gradient clipping to prevent exploding gradients
 DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 # Generation Parameters
-MAX_GENERATED_NODES = 20000 # Max nodes for the generated graph
+MAX_GENERATED_NODES = 500 # Max nodes for the generated graph
 GENERATION_K = K_PATHS # Use same K for generation as training
 GENERATION_L = L_PATHS # Use same L for generation as training
 OUTPUT_DIR = "ntg_output" # Directory for saving models and plots
@@ -243,7 +243,7 @@ print("\n--- Generating New Road Layout Graph ---")
 generated_G = generate_graph(model,
                              start_node_pos=start_node_pos, # Use the position found
                              initial_edges=real_initial_deltas, # Use the calculated deltas
-                             max_nodes=200,
+                             max_nodes=MAX_GENERATED_NODES,
                              K_gen=GENERATION_K,
                              L_gen=GENERATION_L,
                              device=DEVICE)
