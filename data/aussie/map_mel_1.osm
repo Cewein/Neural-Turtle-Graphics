@@ -1,0 +1,1179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="openstreetmap-cgimap 2.0.1 (2270291 spike-07.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <bounds minlat="-37.7599840" minlon="145.1566650" maxlat="-37.7573860" maxlon="145.1625870"/>
+ <node id="402511769" visible="true" version="3" changeset="157130842" timestamp="2024-09-26T14:08:15Z" user="Rhubarb" uid="69319" lat="-37.7583334" lon="145.1537537"/>
+ <node id="402512015" visible="true" version="2" changeset="22157807" timestamp="2014-05-06T01:58:22Z" user="Rhubarb" uid="69319" lat="-37.7589063" lon="145.1590563"/>
+ <node id="402512017" visible="true" version="2" changeset="22157807" timestamp="2014-05-06T01:58:22Z" user="Rhubarb" uid="69319" lat="-37.7589357" lon="145.1593558"/>
+ <node id="402512018" visible="true" version="2" changeset="22157807" timestamp="2014-05-06T01:58:22Z" user="Rhubarb" uid="69319" lat="-37.7589657" lon="145.1596655"/>
+ <node id="402512070" visible="true" version="2" changeset="22157807" timestamp="2014-05-06T01:58:22Z" user="Rhubarb" uid="69319" lat="-37.7588432" lon="145.1580671"/>
+ <node id="402512136" visible="true" version="1" changeset="1220639" timestamp="2009-05-17T12:11:23Z" user="Canley" uid="57437" lat="-37.7576036" lon="145.1582298"/>
+ <node id="402512137" visible="true" version="1" changeset="1220639" timestamp="2009-05-17T12:11:23Z" user="Canley" uid="57437" lat="-37.7573661" lon="145.1582298"/>
+ <node id="402512138" visible="true" version="1" changeset="1220639" timestamp="2009-05-17T12:11:23Z" user="Canley" uid="57437" lat="-37.7571218" lon="145.1581526"/>
+ <node id="402512139" visible="true" version="1" changeset="1220639" timestamp="2009-05-17T12:11:23Z" user="Canley" uid="57437" lat="-37.7569250" lon="145.1580238"/>
+ <node id="402512140" visible="true" version="2" changeset="22157807" timestamp="2014-05-06T01:58:22Z" user="Rhubarb" uid="69319" lat="-37.7565685" lon="145.1577513"/>
+ <node id="402512141" visible="true" version="2" changeset="22157807" timestamp="2014-05-06T01:58:22Z" user="Rhubarb" uid="69319" lat="-37.7561885" lon="145.1573923"/>
+ <node id="402512142" visible="true" version="1" changeset="1220639" timestamp="2009-05-17T12:11:23Z" user="Canley" uid="57437" lat="-37.7560225" lon="145.1573372"/>
+ <node id="402512143" visible="true" version="1" changeset="1220639" timestamp="2009-05-17T12:11:23Z" user="Canley" uid="57437" lat="-37.7557714" lon="145.1573200"/>
+ <node id="402512144" visible="true" version="3" changeset="22157807" timestamp="2014-05-06T01:58:22Z" user="Rhubarb" uid="69319" lat="-37.7551233" lon="145.1573991"/>
+ <node id="402512145" visible="true" version="1" changeset="1220639" timestamp="2009-05-17T12:11:25Z" user="Canley" uid="57437" lat="-37.7580529" lon="145.1581840"/>
+ <node id="402512154" visible="true" version="1" changeset="1220639" timestamp="2009-05-17T12:11:35Z" user="Canley" uid="57437" lat="-37.7579090" lon="145.1567707">
+  <tag k="highway" v="turning_circle"/>
+ </node>
+ <node id="402512501" visible="true" version="2" changeset="22157807" timestamp="2014-05-06T01:58:22Z" user="Rhubarb" uid="69319" lat="-37.7588224" lon="145.1578757"/>
+ <node id="402512640" visible="true" version="2" changeset="22157807" timestamp="2014-05-06T01:58:22Z" user="Rhubarb" uid="69319" lat="-37.7601639" lon="145.1576515">
+  <tag k="highway" v="turning_circle"/>
+ </node>
+ <node id="402512826" visible="true" version="3" changeset="22157807" timestamp="2014-05-06T01:58:22Z" user="Rhubarb" uid="69319" lat="-37.7611515" lon="145.1569533"/>
+ <node id="402512873" visible="true" version="2" changeset="22157807" timestamp="2014-05-06T01:58:22Z" user="Rhubarb" uid="69319" lat="-37.7610023" lon="145.1572742"/>
+ <node id="402512874" visible="true" version="2" changeset="22157807" timestamp="2014-05-06T01:58:22Z" user="Rhubarb" uid="69319" lat="-37.7609613" lon="145.1575328"/>
+ <node id="402512875" visible="true" version="2" changeset="22157807" timestamp="2014-05-06T01:58:22Z" user="Rhubarb" uid="69319" lat="-37.7609664" lon="145.1577308"/>
+ <node id="402512876" visible="true" version="2" changeset="22157807" timestamp="2014-05-06T01:58:22Z" user="Rhubarb" uid="69319" lat="-37.7610169" lon="145.1581808"/>
+ <node id="402512877" visible="true" version="2" changeset="22157807" timestamp="2014-05-06T01:58:22Z" user="Rhubarb" uid="69319" lat="-37.7610004" lon="145.1584236"/>
+ <node id="402512878" visible="true" version="2" changeset="22157807" timestamp="2014-05-06T01:58:22Z" user="Rhubarb" uid="69319" lat="-37.7609296" lon="145.1585732"/>
+ <node id="402512879" visible="true" version="2" changeset="22157807" timestamp="2014-05-06T01:58:22Z" user="Rhubarb" uid="69319" lat="-37.7607958" lon="145.1587019"/>
+ <node id="402512880" visible="true" version="2" changeset="22157807" timestamp="2014-05-06T01:58:22Z" user="Rhubarb" uid="69319" lat="-37.7606088" lon="145.1587718"/>
+ <node id="402512960" visible="true" version="2" changeset="22157807" timestamp="2014-05-06T01:58:22Z" user="Rhubarb" uid="69319" lat="-37.7601937" lon="145.1588439"/>
+ <node id="402513376" visible="true" version="2" changeset="22157807" timestamp="2014-05-06T01:58:22Z" user="Rhubarb" uid="69319" lat="-37.7586902" lon="145.1567821"/>
+ <node id="402513646" visible="true" version="2" changeset="22157807" timestamp="2014-05-06T01:58:22Z" user="Rhubarb" uid="69319" lat="-37.7591887" lon="145.1566726"/>
+ <node id="402513648" visible="true" version="2" changeset="22157807" timestamp="2014-05-06T01:58:22Z" user="Rhubarb" uid="69319" lat="-37.7593960" lon="145.1565617"/>
+ <node id="402513650" visible="true" version="2" changeset="22157807" timestamp="2014-05-06T01:58:22Z" user="Rhubarb" uid="69319" lat="-37.7600364" lon="145.1564416">
+  <tag k="highway" v="turning_circle"/>
+ </node>
+ <node id="444086727" visible="true" version="2" changeset="110941745" timestamp="2021-09-08T23:53:09Z" user="MapAbility" uid="13782447" lat="-37.7602245" lon="145.1600427"/>
+ <node id="444086729" visible="true" version="2" changeset="22157807" timestamp="2014-05-06T01:58:23Z" user="Rhubarb" uid="69319" lat="-37.7594773" lon="145.1600787">
+  <tag k="highway" v="turning_circle"/>
+ </node>
+ <node id="444086742" visible="true" version="2" changeset="22157807" timestamp="2014-05-06T01:58:23Z" user="Rhubarb" uid="69319" lat="-37.7586877" lon="145.1600120"/>
+ <node id="444086744" visible="true" version="1" changeset="1879715" timestamp="2009-07-20T00:34:33Z" user="andrewpmk" uid="1679" lat="-37.7590617" lon="145.1605894"/>
+ <node id="444086746" visible="true" version="2" changeset="12710162" timestamp="2012-08-13T07:36:17Z" user="Rhubarb" uid="69319" lat="-37.7591069" lon="145.1607487"/>
+ <node id="444086749" visible="true" version="1" changeset="1879715" timestamp="2009-07-20T00:34:33Z" user="andrewpmk" uid="1679" lat="-37.7591420" lon="145.1610506"/>
+ <node id="444086751" visible="true" version="2" changeset="12710162" timestamp="2012-08-13T07:36:17Z" user="Rhubarb" uid="69319" lat="-37.7591275" lon="145.1611985"/>
+ <node id="444086754" visible="true" version="2" changeset="12710162" timestamp="2012-08-13T07:36:17Z" user="Rhubarb" uid="69319" lat="-37.7591759" lon="145.1612686"/>
+ <node id="444086756" visible="true" version="2" changeset="12710162" timestamp="2012-08-13T07:36:17Z" user="Rhubarb" uid="69319" lat="-37.7592857" lon="145.1612620"/>
+ <node id="444086758" visible="true" version="2" changeset="110941745" timestamp="2021-09-08T23:53:09Z" user="MapAbility" uid="13782447" lat="-37.7602375" lon="145.1610944"/>
+ <node id="444086761" visible="true" version="2" changeset="22157807" timestamp="2014-05-06T01:58:23Z" user="Rhubarb" uid="69319" lat="-37.7579904" lon="145.1615469">
+  <tag k="highway" v="turning_circle"/>
+ </node>
+ <node id="444086763" visible="true" version="2" changeset="22157807" timestamp="2014-05-06T01:58:23Z" user="Rhubarb" uid="69319" lat="-37.7581774" lon="145.1614487"/>
+ <node id="444086766" visible="true" version="2" changeset="22157807" timestamp="2014-05-06T01:58:23Z" user="Rhubarb" uid="69319" lat="-37.7582475" lon="145.1612750"/>
+ <node id="444086773" visible="true" version="2" changeset="22157807" timestamp="2014-05-06T01:58:23Z" user="Rhubarb" uid="69319" lat="-37.7581890" lon="145.1610396"/>
+ <node id="444086774" visible="true" version="2" changeset="22157807" timestamp="2014-05-06T01:58:23Z" user="Rhubarb" uid="69319" lat="-37.7581597" lon="145.1604314"/>
+ <node id="444086776" visible="true" version="2" changeset="22157807" timestamp="2014-05-06T01:58:23Z" user="Rhubarb" uid="69319" lat="-37.7581370" lon="145.1602958">
+  <tag k="highway" v="turning_circle"/>
+ </node>
+ <node id="444086780" visible="true" version="4" changeset="22157807" timestamp="2014-05-06T01:58:23Z" user="Rhubarb" uid="69319" lat="-37.7555013" lon="145.1607289"/>
+ <node id="444086787" visible="true" version="2" changeset="22157807" timestamp="2014-05-06T01:58:23Z" user="Rhubarb" uid="69319" lat="-37.7569425" lon="145.1604900"/>
+ <node id="444087760" visible="true" version="1" changeset="1879721" timestamp="2009-07-20T00:38:05Z" user="andrewpmk" uid="1679" lat="-37.7594542" lon="145.1620044"/>
+ <node id="444087761" visible="true" version="1" changeset="1879721" timestamp="2009-07-20T00:38:05Z" user="andrewpmk" uid="1679" lat="-37.7591637" lon="145.1622389"/>
+ <node id="444087762" visible="true" version="1" changeset="1879721" timestamp="2009-07-20T00:38:05Z" user="andrewpmk" uid="1679" lat="-37.7589535" lon="145.1625516"/>
+ <node id="444087763" visible="true" version="2" changeset="110941745" timestamp="2021-09-08T23:53:09Z" user="MapAbility" uid="13782447" lat="-37.7586694" lon="145.1627285"/>
+ <node id="444087764" visible="true" version="1" changeset="1879721" timestamp="2009-07-20T00:38:05Z" user="andrewpmk" uid="1679" lat="-37.7576340" lon="145.1630754"/>
+ <node id="444087765" visible="true" version="2" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7571450" lon="145.1631484"/>
+ <node id="444087766" visible="true" version="2" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7566732" lon="145.1633319"/>
+ <node id="444087767" visible="true" version="2" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7564776" lon="145.1633643"/>
+ <node id="444087768" visible="true" version="2" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7560662" lon="145.1635571"/>
+ <node id="444087770" visible="true" version="2" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7556193" lon="145.1636179"/>
+ <node id="444087771" visible="true" version="2" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7550997" lon="145.1635033"/>
+ <node id="444087772" visible="true" version="2" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7549187" lon="145.1635360"/>
+ <node id="444087773" visible="true" version="2" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7545892" lon="145.1636322"/>
+ <node id="444087774" visible="true" version="2" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7542948" lon="145.1636443"/>
+ <node id="444087775" visible="true" version="2" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7535189" lon="145.1634861"/>
+ <node id="444087776" visible="true" version="2" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7532971" lon="145.1634895"/>
+ <node id="444087777" visible="true" version="2" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7527986" lon="145.1636574"/>
+ <node id="444087778" visible="true" version="2" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7524461" lon="145.1636769"/>
+ <node id="544304036" visible="true" version="2" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7519917" lon="145.1636446"/>
+ <node id="544304037" visible="true" version="2" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7518407" lon="145.1636964"/>
+ <node id="544304038" visible="true" version="2" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7517900" lon="145.1637214"/>
+ <node id="544304039" visible="true" version="2" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7517041" lon="145.1637960"/>
+ <node id="544304040" visible="true" version="2" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7516188" lon="145.1640884"/>
+ <node id="544304042" visible="true" version="2" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7515140" lon="145.1645646"/>
+ <node id="544304043" visible="true" version="2" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7513464" lon="145.1647822"/>
+ <node id="544304044" visible="true" version="2" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7510177" lon="145.1651944"/>
+ <node id="544304046" visible="true" version="3" changeset="157616948" timestamp="2024-10-08T09:31:39Z" user="TheSwavu" uid="2622285" lat="-37.7508582" lon="145.1653877">
+  <tag k="crossing" v="unmarked"/>
+  <tag k="highway" v="crossing"/>
+ </node>
+ <node id="544320387" visible="true" version="8" changeset="148904006" timestamp="2024-03-20T10:29:29Z" user="ChonkerStonker" uid="12556129" lat="-37.7605325" lon="145.1622263">
+  <tag k="crossing" v="unmarked"/>
+  <tag k="crossing:island" v="yes"/>
+  <tag k="crossing:markings" v="no"/>
+  <tag k="highway" v="crossing"/>
+  <tag k="tactile_paving" v="no"/>
+ </node>
+ <node id="544321624" visible="true" version="3" changeset="129473444" timestamp="2022-11-28T11:53:20Z" user="kimo" uid="28961" lat="-37.7626959" lon="145.1627698"/>
+ <node id="544321632" visible="true" version="2" changeset="129473444" timestamp="2022-11-28T11:53:20Z" user="kimo" uid="28961" lat="-37.7618349" lon="145.1627822"/>
+ <node id="544321634" visible="true" version="1" changeset="2977943" timestamp="2009-10-29T00:06:18Z" user="melb_guy" uid="11111" lat="-37.7614140" lon="145.1628247"/>
+ <node id="544321636" visible="true" version="1" changeset="2977943" timestamp="2009-10-29T00:06:18Z" user="melb_guy" uid="11111" lat="-37.7612308" lon="145.1627646"/>
+ <node id="544321638" visible="true" version="1" changeset="2977943" timestamp="2009-10-29T00:06:19Z" user="melb_guy" uid="11111" lat="-37.7611019" lon="145.1626444"/>
+ <node id="544321640" visible="true" version="1" changeset="2977943" timestamp="2009-10-29T00:06:19Z" user="melb_guy" uid="11111" lat="-37.7609187" lon="145.1624127"/>
+ <node id="544321642" visible="true" version="2" changeset="129473444" timestamp="2022-11-28T11:53:20Z" user="kimo" uid="28961" lat="-37.7607105" lon="145.1622122"/>
+ <node id="544321643" visible="true" version="2" changeset="129473444" timestamp="2022-11-28T11:53:20Z" user="kimo" uid="28961" lat="-37.7606087" lon="145.1623009"/>
+ <node id="544321647" visible="true" version="2" changeset="110941745" timestamp="2021-09-08T23:53:09Z" user="MapAbility" uid="13782447" lat="-37.7603106" lon="145.1619449"/>
+ <node id="603009399" visible="true" version="1" changeset="3516712" timestamp="2010-01-02T10:28:39Z" user="stevage" uid="201443" lat="-37.7624510" lon="145.1628597"/>
+ <node id="773160618" visible="true" version="2" changeset="36653647" timestamp="2016-01-18T11:05:55Z" user="Ewen Hill" uid="935037" lat="-37.7585465" lon="145.1556393"/>
+ <node id="773160663" visible="true" version="2" changeset="36653647" timestamp="2016-01-18T11:05:55Z" user="Ewen Hill" uid="935037" lat="-37.7584500" lon="145.1548829"/>
+ <node id="1083027406" visible="true" version="2" changeset="43461394" timestamp="2016-11-07T10:45:24Z" user="Rhubarb" uid="69319" lat="-37.7575696" lon="145.1639706"/>
+ <node id="1083027407" visible="true" version="3" changeset="110941745" timestamp="2021-09-08T23:53:09Z" user="MapAbility" uid="13782447" lat="-37.7585261" lon="145.1634061"/>
+ <node id="1083027418" visible="true" version="2" changeset="110941745" timestamp="2021-09-08T23:53:09Z" user="MapAbility" uid="13782447" lat="-37.7604678" lon="145.1621850"/>
+ <node id="1083027422" visible="true" version="2" changeset="43461394" timestamp="2016-11-07T10:45:24Z" user="Rhubarb" uid="69319" lat="-37.7567988" lon="145.1641625"/>
+ <node id="1083027429" visible="true" version="3" changeset="43461394" timestamp="2016-11-07T10:45:24Z" user="Rhubarb" uid="69319" lat="-37.7565525" lon="145.1627530"/>
+ <node id="1083027437" visible="true" version="2" changeset="110941745" timestamp="2021-09-08T23:53:09Z" user="MapAbility" uid="13782447" lat="-37.7602520" lon="145.1617862"/>
+ <node id="1083027438" visible="true" version="1" changeset="6868065" timestamp="2011-01-05T02:51:39Z" user="stevage" uid="201443" lat="-37.7592138" lon="145.1618332"/>
+ <node id="1083027439" visible="true" version="3" changeset="43461394" timestamp="2016-11-07T10:45:24Z" user="Rhubarb" uid="69319" lat="-37.7576653" lon="145.1639404"/>
+ <node id="1083027445" visible="true" version="2" changeset="12710162" timestamp="2012-08-13T07:36:16Z" user="Rhubarb" uid="69319" lat="-37.7602427" lon="145.1627077"/>
+ <node id="1083027448" visible="true" version="1" changeset="6868065" timestamp="2011-01-05T02:51:39Z" user="stevage" uid="201443" lat="-37.7588491" lon="145.1618225"/>
+ <node id="1083027450" visible="true" version="1" changeset="6868065" timestamp="2011-01-05T02:51:39Z" user="stevage" uid="201443" lat="-37.7588661" lon="145.1619566"/>
+ <node id="1083027452" visible="true" version="2" changeset="43461394" timestamp="2016-11-07T10:45:24Z" user="Rhubarb" uid="69319" lat="-37.7569085" lon="145.1642020"/>
+ <node id="1083027454" visible="true" version="3" changeset="43461394" timestamp="2016-11-07T10:45:24Z" user="Rhubarb" uid="69319" lat="-37.7565355" lon="145.1622637"/>
+ <node id="1083027455" visible="true" version="2" changeset="43461394" timestamp="2016-11-07T10:45:24Z" user="Rhubarb" uid="69319" lat="-37.7566074" lon="145.1638627"/>
+ <node id="1083027465" visible="true" version="1" changeset="6868065" timestamp="2011-01-05T02:51:40Z" user="stevage" uid="201443" lat="-37.7602656" lon="145.1626001"/>
+ <node id="1083027469" visible="true" version="2" changeset="43461394" timestamp="2016-11-07T10:45:24Z" user="Rhubarb" uid="69319" lat="-37.7572096" lon="145.1639231"/>
+ <node id="1083027471" visible="true" version="2" changeset="110941745" timestamp="2021-09-08T23:53:09Z" user="MapAbility" uid="13782447" lat="-37.7603941" lon="145.1622892"/>
+ <node id="1083027472" visible="true" version="3" changeset="43461394" timestamp="2016-11-07T10:45:24Z" user="Rhubarb" uid="69319" lat="-37.7559914" lon="145.1641314"/>
+ <node id="1083027475" visible="true" version="3" changeset="43461394" timestamp="2016-11-07T10:45:24Z" user="Rhubarb" uid="69319" lat="-37.7576194" lon="145.1635678"/>
+ <node id="1083027477" visible="true" version="3" changeset="43461394" timestamp="2016-11-07T10:45:24Z" user="Rhubarb" uid="69319" lat="-37.7558491" lon="145.1628990"/>
+ <node id="1863975567" visible="true" version="2" changeset="110941745" timestamp="2021-09-08T23:53:09Z" user="MapAbility" uid="13782447" lat="-37.7584907" lon="145.1630503"/>
+ <node id="1863975569" visible="true" version="2" changeset="110941745" timestamp="2021-09-08T23:53:09Z" user="MapAbility" uid="13782447" lat="-37.7588599" lon="145.1630104"/>
+ <node id="1863975570" visible="true" version="2" changeset="110941745" timestamp="2021-09-08T23:53:09Z" user="MapAbility" uid="13782447" lat="-37.7591563" lon="145.1613522"/>
+ <node id="1863975572" visible="true" version="2" changeset="110941745" timestamp="2021-09-08T23:53:09Z" user="MapAbility" uid="13782447" lat="-37.7592586" lon="145.1618810"/>
+ <node id="1863975573" visible="true" version="2" changeset="110941745" timestamp="2021-09-08T23:53:09Z" user="MapAbility" uid="13782447" lat="-37.7593279" lon="145.1620745"/>
+ <node id="1863975574" visible="true" version="1" changeset="12710162" timestamp="2012-08-13T07:36:14Z" user="Rhubarb" uid="69319" lat="-37.7596740" lon="145.1611660"/>
+ <node id="2838809103" visible="true" version="1" changeset="22157807" timestamp="2014-05-06T01:58:16Z" user="Rhubarb" uid="69319" lat="-37.7567102" lon="145.1605285">
+  <tag k="traffic_calming" v="table"/>
+ </node>
+ <node id="2838809106" visible="true" version="1" changeset="22157807" timestamp="2014-05-06T01:58:17Z" user="Rhubarb" uid="69319" lat="-37.7575130" lon="145.1591588"/>
+ <node id="2838809107" visible="true" version="1" changeset="22157807" timestamp="2014-05-06T01:58:17Z" user="Rhubarb" uid="69319" lat="-37.7575304" lon="145.1591300"/>
+ <node id="2838809108" visible="true" version="1" changeset="22157807" timestamp="2014-05-06T01:58:17Z" user="Rhubarb" uid="69319" lat="-37.7575425" lon="145.1594218"/>
+ <node id="2838809109" visible="true" version="1" changeset="22157807" timestamp="2014-05-06T01:58:17Z" user="Rhubarb" uid="69319" lat="-37.7575706" lon="145.1591045"/>
+ <node id="2838809110" visible="true" version="1" changeset="22157807" timestamp="2014-05-06T01:58:17Z" user="Rhubarb" uid="69319" lat="-37.7576766" lon="145.1591283"/>
+ <node id="2838809111" visible="true" version="1" changeset="22157807" timestamp="2014-05-06T01:58:17Z" user="Rhubarb" uid="69319" lat="-37.7577490" lon="145.1591351"/>
+ <node id="2838809112" visible="true" version="1" changeset="22157807" timestamp="2014-05-06T01:58:17Z" user="Rhubarb" uid="69319" lat="-37.7581473" lon="145.1606661"/>
+ <node id="2838809113" visible="true" version="1" changeset="22157807" timestamp="2014-05-06T01:58:17Z" user="Rhubarb" uid="69319" lat="-37.7581916" lon="145.1608544"/>
+ <node id="2838809114" visible="true" version="1" changeset="22157807" timestamp="2014-05-06T01:58:17Z" user="Rhubarb" uid="69319" lat="-37.7582841" lon="145.1590401"/>
+ <node id="2838809115" visible="true" version="1" changeset="22157807" timestamp="2014-05-06T01:58:17Z" user="Rhubarb" uid="69319" lat="-37.7584691" lon="145.1590859"/>
+ <node id="2838809116" visible="true" version="1" changeset="22157807" timestamp="2014-05-06T01:58:17Z" user="Rhubarb" uid="69319" lat="-37.7588648" lon="145.1587082"/>
+ <node id="2838809117" visible="true" version="1" changeset="22157807" timestamp="2014-05-06T01:58:17Z" user="Rhubarb" uid="69319" lat="-37.7588782" lon="145.1583469"/>
+ <node id="2838809118" visible="true" version="1" changeset="22157807" timestamp="2014-05-06T01:58:17Z" user="Rhubarb" uid="69319" lat="-37.7588993" lon="145.1589977"/>
+ <node id="2838809119" visible="true" version="1" changeset="22157807" timestamp="2014-05-06T01:58:17Z" user="Rhubarb" uid="69319" lat="-37.7589586" lon="145.1599720"/>
+ <node id="2838809120" visible="true" version="1" changeset="22157807" timestamp="2014-05-06T01:58:17Z" user="Rhubarb" uid="69319" lat="-37.7589894" lon="145.1599517"/>
+ <node id="2838809121" visible="true" version="1" changeset="22157807" timestamp="2014-05-06T01:58:17Z" user="Rhubarb" uid="69319" lat="-37.7590056" lon="145.1599126"/>
+ <node id="2838809122" visible="true" version="2" changeset="110941745" timestamp="2021-09-08T23:53:09Z" user="MapAbility" uid="13782447" lat="-37.7597398" lon="145.1600401"/>
+ <node id="2838809123" visible="true" version="2" changeset="110941745" timestamp="2021-09-08T23:53:09Z" user="MapAbility" uid="13782447" lat="-37.7599844" lon="145.1600259"/>
+ <node id="4270670083" visible="true" version="1" changeset="40354485" timestamp="2016-06-28T22:29:26Z" user="Pakenhamin" uid="566314" lat="-37.7589241" lon="145.1596938">
+  <tag k="addr:housenumber" v="31"/>
+  <tag k="addr:street" v="Oliver Road"/>
+  <tag k="building" v="yes"/>
+ </node>
+ <node id="4486714526" visible="true" version="1" changeset="43461394" timestamp="2016-11-07T10:45:23Z" user="Rhubarb" uid="69319" lat="-37.7564151" lon="145.1628125"/>
+ <node id="4486714527" visible="true" version="1" changeset="43461394" timestamp="2016-11-07T10:45:23Z" user="Rhubarb" uid="69319" lat="-37.7560838" lon="145.1627910"/>
+ <node id="4486714528" visible="true" version="1" changeset="43461394" timestamp="2016-11-07T10:45:23Z" user="Rhubarb" uid="69319" lat="-37.7575989" lon="145.1639541"/>
+ <node id="4486714529" visible="true" version="1" changeset="43461394" timestamp="2016-11-07T10:45:23Z" user="Rhubarb" uid="69319" lat="-37.7568513" lon="145.1641623"/>
+ <node id="4486714530" visible="true" version="1" changeset="43461394" timestamp="2016-11-07T10:45:23Z" user="Rhubarb" uid="69319" lat="-37.7560965" lon="145.1641124"/>
+ <node id="4486714531" visible="true" version="1" changeset="43461394" timestamp="2016-11-07T10:45:23Z" user="Rhubarb" uid="69319" lat="-37.7563101" lon="145.1639179"/>
+ <node id="9074965738" visible="true" version="1" changeset="110941680" timestamp="2021-09-08T23:44:21Z" user="MapAbility" uid="13782447" lat="-37.7609757" lon="145.1574418"/>
+ <node id="9074965741" visible="true" version="1" changeset="110941680" timestamp="2021-09-08T23:44:21Z" user="MapAbility" uid="13782447" lat="-37.7605596" lon="145.1587803"/>
+ <node id="9074965744" visible="true" version="1" changeset="110941680" timestamp="2021-09-08T23:44:21Z" user="MapAbility" uid="13782447" lat="-37.7607090" lon="145.1587457"/>
+ <node id="9074996025" visible="true" version="1" changeset="110941745" timestamp="2021-09-08T23:53:09Z" user="MapAbility" uid="13782447" lat="-37.7591997" lon="145.1613338"/>
+ <node id="9074996026" visible="true" version="1" changeset="110941745" timestamp="2021-09-08T23:53:09Z" user="MapAbility" uid="13782447" lat="-37.7590033" lon="145.1624776"/>
+ <node id="9074996027" visible="true" version="1" changeset="110941745" timestamp="2021-09-08T23:53:09Z" user="MapAbility" uid="13782447" lat="-37.7589052" lon="145.1629257"/>
+ <node id="9074996030" visible="true" version="1" changeset="110941745" timestamp="2021-09-08T23:53:09Z" user="MapAbility" uid="13782447" lat="-37.7589321" lon="145.1627632"/>
+ <node id="9074996031" visible="true" version="1" changeset="110941745" timestamp="2021-09-08T23:53:09Z" user="MapAbility" uid="13782447" lat="-37.7589268" lon="145.1629495"/>
+ <node id="9074996032" visible="true" version="1" changeset="110941745" timestamp="2021-09-08T23:53:09Z" user="MapAbility" uid="13782447" lat="-37.7595904" lon="145.1627732"/>
+ <node id="9074996033" visible="true" version="1" changeset="110941745" timestamp="2021-09-08T23:53:09Z" user="MapAbility" uid="13782447" lat="-37.7598179" lon="145.1628587"/>
+ <node id="9074996036" visible="true" version="1" changeset="110941745" timestamp="2021-09-08T23:53:09Z" user="MapAbility" uid="13782447" lat="-37.7603105" lon="145.1619814"/>
+ <node id="9074996037" visible="true" version="1" changeset="110941745" timestamp="2021-09-08T23:53:09Z" user="MapAbility" uid="13782447" lat="-37.7603175" lon="145.1624219"/>
+ <node id="9074996038" visible="true" version="1" changeset="110941745" timestamp="2021-09-08T23:53:09Z" user="MapAbility" uid="13782447" lat="-37.7595527" lon="145.1619745"/>
+ <node id="9074996039" visible="true" version="1" changeset="110941745" timestamp="2021-09-08T23:53:09Z" user="MapAbility" uid="13782447" lat="-37.7584229" lon="145.1628419"/>
+ <node id="9074996040" visible="true" version="1" changeset="110941745" timestamp="2021-09-08T23:53:09Z" user="MapAbility" uid="13782447" lat="-37.7585011" lon="145.1628074"/>
+ <node id="10223471718" visible="true" version="2" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7521878" lon="145.1636393"/>
+ <node id="10701675125" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7509010" lon="145.1652867"/>
+ <node id="10701675126" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7509616" lon="145.1652435"/>
+ <node id="10701675127" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7510912" lon="145.1651072"/>
+ <node id="10701675128" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7512460" lon="145.1649120"/>
+ <node id="10701675129" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7514273" lon="145.1646712"/>
+ <node id="10701675130" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7515376" lon="145.1645244"/>
+ <node id="10701675131" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7516511" lon="145.1639078"/>
+ <node id="10701675132" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7516291" lon="145.1640092"/>
+ <node id="10701675133" visible="true" version="2" changeset="151938586" timestamp="2024-05-28T11:02:32Z" user="SpecializedRider" uid="2093277" lat="-37.7516135" lon="145.1642337"/>
+ <node id="10701675134" visible="true" version="2" changeset="151938586" timestamp="2024-05-28T11:02:32Z" user="SpecializedRider" uid="2093277" lat="-37.7516124" lon="145.1643209"/>
+ <node id="10701675135" visible="true" version="2" changeset="151938586" timestamp="2024-05-28T11:02:32Z" user="SpecializedRider" uid="2093277" lat="-37.7516050" lon="145.1644336"/>
+ <node id="10701675138" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7515643" lon="145.1645067"/>
+ <node id="10701675139" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7516733" lon="145.1638459"/>
+ <node id="10701675140" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7517477" lon="145.1637513"/>
+ <node id="10701675141" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7518974" lon="145.1636688"/>
+ <node id="10701675142" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7519385" lon="145.1636540"/>
+ <node id="10701675143" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7520763" lon="145.1636360"/>
+ <node id="10701675145" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7523439" lon="145.1636653"/>
+ <node id="10701675153" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7525122" lon="145.1636781"/>
+ <node id="10701675154" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7526520" lon="145.1636723"/>
+ <node id="10701675155" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7528953" lon="145.1636457"/>
+ <node id="10701675156" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7529709" lon="145.1636286"/>
+ <node id="10701675157" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7530454" lon="145.1636007"/>
+ <node id="10701675158" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7531684" lon="145.1635420"/>
+ <node id="10701675159" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7532538" lon="145.1635036"/>
+ <node id="10701675172" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7533622" lon="145.1634800"/>
+ <node id="10701675173" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7534115" lon="145.1634775"/>
+ <node id="10701675174" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7534470" lon="145.1634790"/>
+ <node id="10701675175" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7536350" lon="145.1635059"/>
+ <node id="10701675176" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7538378" lon="145.1635452"/>
+ <node id="10701675177" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7540639" lon="145.1635966"/>
+ <node id="10701675178" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7542136" lon="145.1636316"/>
+ <node id="10701675179" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7543815" lon="145.1636499"/>
+ <node id="10701675180" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7544535" lon="145.1636510"/>
+ <node id="10701675181" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7545169" lon="145.1636461"/>
+ <node id="10701675182" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7546936" lon="145.1636068"/>
+ <node id="10701675183" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7548177" lon="145.1635691"/>
+ <node id="10701675184" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7549840" lon="145.1635185"/>
+ <node id="10701675185" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7550384" lon="145.1635091"/>
+ <node id="10701675186" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7551398" lon="145.1635035"/>
+ <node id="10701675187" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7551861" lon="145.1635105"/>
+ <node id="10701675188" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7552461" lon="145.1635241"/>
+ <node id="10701675189" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7554182" lon="145.1635718"/>
+ <node id="10701675190" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7555264" lon="145.1635987"/>
+ <node id="10701675191" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7556508" lon="145.1636199"/>
+ <node id="10701675192" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7556821" lon="145.1636170"/>
+ <node id="10701675193" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7557369" lon="145.1636114"/>
+ <node id="10701675194" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7557763" lon="145.1636013"/>
+ <node id="10701675195" visible="true" version="2" changeset="157616948" timestamp="2024-10-08T09:31:39Z" user="TheSwavu" uid="2622285" lat="-37.7558303" lon="145.1635907">
+  <tag k="crossing" v="unmarked"/>
+  <tag k="highway" v="crossing"/>
+ </node>
+ <node id="10701675196" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7559026" lon="145.1635759"/>
+ <node id="10701675197" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7559206" lon="145.1635721"/>
+ <node id="10701675198" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7559479" lon="145.1635744"/>
+ <node id="10701675199" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7560085" lon="145.1635701"/>
+ <node id="10701675200" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7561255" lon="145.1635354"/>
+ <node id="10701675201" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7563062" lon="145.1634439"/>
+ <node id="10701675202" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7563845" lon="145.1633996"/>
+ <node id="10701675203" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7564262" lon="145.1633805"/>
+ <node id="10701675204" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7565329" lon="145.1633529"/>
+ <node id="10701675205" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7566146" lon="145.1633447"/>
+ <node id="10701675206" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7567325" lon="145.1633110"/>
+ <node id="10701675207" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7568614" lon="145.1632524"/>
+ <node id="10701675208" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7569924" lon="145.1631959"/>
+ <node id="10701675209" visible="true" version="1" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129" lat="-37.7570930" lon="145.1631650"/>
+ <node id="10701675251" visible="true" version="2" changeset="157616948" timestamp="2024-10-08T09:31:39Z" user="TheSwavu" uid="2622285" lat="-37.7508894" lon="145.1653174">
+  <tag k="crossing" v="unmarked"/>
+  <tag k="highway" v="crossing"/>
+ </node>
+ <node id="12079568020" visible="true" version="1" changeset="154547020" timestamp="2024-07-29T06:28:27Z" user="Pakenhamin" uid="566314" lat="-37.7585300" lon="145.1583656">
+  <tag k="addr:housenumber" v="27"/>
+  <tag k="addr:street" v="Bedervale Drive"/>
+  <tag k="building" v="yes"/>
+ </node>
+ <node id="12418348744" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7589654" lon="145.1577019">
+  <tag k="addr:housenumber" v="19"/>
+  <tag k="addr:street" v="Louisa Place"/>
+ </node>
+ <node id="12418348745" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7588965" lon="145.1573769">
+  <tag k="addr:housenumber" v="32"/>
+  <tag k="addr:street" v="Oliver Road"/>
+ </node>
+ <node id="12418370128" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7583728" lon="145.1613955">
+  <tag k="addr:housenumber" v="34"/>
+  <tag k="addr:street" v="Hillhouse Road"/>
+ </node>
+ <node id="12418370129" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7583170" lon="145.1615996">
+  <tag k="addr:housenumber" v="36"/>
+  <tag k="addr:street" v="Hillhouse Road"/>
+ </node>
+ <node id="12418370195" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7591651" lon="145.1616320">
+  <tag k="addr:housenumber" v="10"/>
+  <tag k="addr:street" v="Castlebar Way"/>
+ </node>
+ <node id="12418370196" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7588324" lon="145.1606164">
+  <tag k="addr:housenumber" v="11"/>
+  <tag k="addr:street" v="Castlebar Way"/>
+ </node>
+ <node id="12418370197" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7590271" lon="145.1615052">
+  <tag k="addr:housenumber" v="12"/>
+  <tag k="addr:street" v="Castlebar Way"/>
+ </node>
+ <node id="12418370198" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7589486" lon="145.1608005">
+  <tag k="addr:housenumber" v="13"/>
+  <tag k="addr:street" v="Castlebar Way"/>
+ </node>
+ <node id="12418370199" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7589852" lon="145.1613306">
+  <tag k="addr:housenumber" v="14"/>
+  <tag k="addr:street" v="Castlebar Way"/>
+ </node>
+ <node id="12418370200" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7589800" lon="145.1609401">
+  <tag k="addr:housenumber" v="15"/>
+  <tag k="addr:street" v="Castlebar Way"/>
+ </node>
+ <node id="12418370201" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7589607" lon="145.1611381">
+  <tag k="addr:housenumber" v="16"/>
+  <tag k="addr:street" v="Castlebar Way"/>
+ </node>
+ <node id="12418370264" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7575387" lon="145.1605700">
+  <tag k="addr:housenumber" v="11"/>
+  <tag k="addr:street" v="Hillhouse Road"/>
+ </node>
+ <node id="12418370265" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7578716" lon="145.1605070">
+  <tag k="addr:housenumber" v="13"/>
+  <tag k="addr:street" v="Hillhouse Road"/>
+ </node>
+ <node id="12418370415" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7589185" lon="145.1604474">
+  <tag k="addr:housenumber" v="9A"/>
+  <tag k="addr:street" v="Castlebar Way"/>
+ </node>
+ <node id="12418370708" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7573982" lon="145.1580592">
+  <tag k="addr:housenumber" v="16"/>
+  <tag k="addr:street" v="Bedervale Drive"/>
+ </node>
+ <node id="12418370710" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7574590" lon="145.1583836">
+  <tag k="addr:housenumber" v="19"/>
+  <tag k="addr:street" v="Bedervale Drive"/>
+ </node>
+ <node id="12418370711" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7577109" lon="145.1583653">
+  <tag k="addr:housenumber" v="21"/>
+  <tag k="addr:street" v="Bedervale Drive"/>
+ </node>
+ <node id="12418370712" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7579803" lon="145.1583468">
+  <tag k="addr:housenumber" v="23"/>
+  <tag k="addr:street" v="Bedervale Drive"/>
+ </node>
+ <node id="12418370713" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7582857" lon="145.1583046">
+  <tag k="addr:housenumber" v="25"/>
+  <tag k="addr:street" v="Bedervale Drive"/>
+ </node>
+ <node id="12418370924" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7597113" lon="145.1609858">
+  <tag k="addr:housenumber" v="1"/>
+  <tag k="addr:street" v="Castlebar Way"/>
+ </node>
+ <node id="12418370925" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7597979" lon="145.1613349">
+  <tag k="addr:housenumber" v="2"/>
+  <tag k="addr:street" v="Castlebar Way"/>
+ </node>
+ <node id="12418370926" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7595586" lon="145.1610125">
+  <tag k="addr:housenumber" v="3"/>
+  <tag k="addr:street" v="Castlebar Way"/>
+ </node>
+ <node id="12418370927" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7596003" lon="145.1613741">
+  <tag k="addr:housenumber" v="4"/>
+  <tag k="addr:street" v="Castlebar Way"/>
+ </node>
+ <node id="12418370928" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7594148" lon="145.1610389">
+  <tag k="addr:housenumber" v="5"/>
+  <tag k="addr:street" v="Castlebar Way"/>
+ </node>
+ <node id="12418370929" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7594476" lon="145.1614008">
+  <tag k="addr:housenumber" v="6"/>
+  <tag k="addr:street" v="Castlebar Way"/>
+ </node>
+ <node id="12418370930" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7592616" lon="145.1610660">
+  <tag k="addr:housenumber" v="7"/>
+  <tag k="addr:street" v="Castlebar Way"/>
+ </node>
+ <node id="12418370931" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7593037" lon="145.1614277">
+  <tag k="addr:housenumber" v="8"/>
+  <tag k="addr:street" v="Castlebar Way"/>
+ </node>
+ <node id="12418371391" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7599181" lon="145.1587091">
+  <tag k="addr:housenumber" v="17"/>
+  <tag k="addr:street" v="Fielding Way"/>
+ </node>
+ <node id="12418371392" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7597373" lon="145.1587479">
+  <tag k="addr:housenumber" v="19"/>
+  <tag k="addr:street" v="Fielding Way"/>
+ </node>
+ <node id="12418371393" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7597308" lon="145.1591111">
+  <tag k="addr:housenumber" v="20"/>
+  <tag k="addr:street" v="Fielding Way"/>
+ </node>
+ <node id="12418371394" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7595657" lon="145.1587636">
+  <tag k="addr:housenumber" v="21"/>
+  <tag k="addr:street" v="Fielding Way"/>
+ </node>
+ <node id="12418371395" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7595878" lon="145.1591489">
+  <tag k="addr:housenumber" v="22"/>
+  <tag k="addr:street" v="Fielding Way"/>
+ </node>
+ <node id="12418371396" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7594216" lon="145.1587786">
+  <tag k="addr:housenumber" v="23"/>
+  <tag k="addr:street" v="Fielding Way"/>
+ </node>
+ <node id="12418371397" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7594173" lon="145.1591759">
+  <tag k="addr:housenumber" v="24"/>
+  <tag k="addr:street" v="Fielding Way"/>
+ </node>
+ <node id="12418371398" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7592329" lon="145.1588515">
+  <tag k="addr:housenumber" v="25"/>
+  <tag k="addr:street" v="Fielding Way"/>
+ </node>
+ <node id="12418371399" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7592456" lon="145.1592147">
+  <tag k="addr:housenumber" v="26"/>
+  <tag k="addr:street" v="Fielding Way"/>
+ </node>
+ <node id="12418371400" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7590709" lon="145.1588567">
+  <tag k="addr:housenumber" v="27"/>
+  <tag k="addr:street" v="Fielding Way"/>
+ </node>
+ <node id="12418371401" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7591112" lon="145.1592401">
+  <tag k="addr:housenumber" v="28"/>
+  <tag k="addr:street" v="Fielding Way"/>
+ </node>
+ <node id="12418371406" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7597738" lon="145.1598383">
+  <tag k="addr:housenumber" v="1"/>
+  <tag k="addr:street" v="Galway Close"/>
+ </node>
+ <node id="12418371407" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7596386" lon="145.1598874">
+  <tag k="addr:housenumber" v="2"/>
+  <tag k="addr:street" v="Galway Close"/>
+ </node>
+ <node id="12418371408" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7594758" lon="145.1598234">
+  <tag k="addr:housenumber" v="3"/>
+  <tag k="addr:street" v="Galway Close"/>
+ </node>
+ <node id="12418371409" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7593244" lon="145.1599411">
+  <tag k="addr:housenumber" v="4"/>
+  <tag k="addr:street" v="Galway Close"/>
+ </node>
+ <node id="12418371410" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7592740" lon="145.1601237">
+  <tag k="addr:housenumber" v="5"/>
+  <tag k="addr:street" v="Galway Close"/>
+ </node>
+ <node id="12418371411" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7593396" lon="145.1602921">
+  <tag k="addr:housenumber" v="6"/>
+  <tag k="addr:street" v="Galway Close"/>
+ </node>
+ <node id="12418371412" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7595198" lon="145.1603100">
+  <tag k="addr:housenumber" v="7"/>
+  <tag k="addr:street" v="Galway Close"/>
+ </node>
+ <node id="12418371413" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7596903" lon="145.1602488">
+  <tag k="addr:housenumber" v="8"/>
+  <tag k="addr:street" v="Galway Close"/>
+ </node>
+ <node id="12418371414" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7599329" lon="145.1602085">
+  <tag k="addr:housenumber" v="9"/>
+  <tag k="addr:street" v="Galway Close"/>
+ </node>
+ <node id="12418371603" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7580275" lon="145.1606732">
+  <tag k="addr:housenumber" v="13A"/>
+  <tag k="addr:street" v="Hillhouse Road"/>
+ </node>
+ <node id="12418371604" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7580483" lon="145.1608315">
+  <tag k="addr:housenumber" v="13B"/>
+  <tag k="addr:street" v="Hillhouse Road"/>
+ </node>
+ <node id="12418371605" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7580510" lon="145.1610018">
+  <tag k="addr:housenumber" v="13C"/>
+  <tag k="addr:street" v="Hillhouse Road"/>
+ </node>
+ <node id="12418371606" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7577074" lon="145.1601883">
+  <tag k="addr:housenumber" v="14"/>
+  <tag k="addr:street" v="Hillhouse Road"/>
+ </node>
+ <node id="12418371607" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7581182" lon="145.1612608">
+  <tag k="addr:housenumber" v="15"/>
+  <tag k="addr:street" v="Hillhouse Road"/>
+ </node>
+ <node id="12418371608" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7578495" lon="145.1613590">
+  <tag k="addr:housenumber" v="17"/>
+  <tag k="addr:street" v="Hillhouse Road"/>
+ </node>
+ <node id="12418371609" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7580913" lon="145.1600800">
+  <tag k="addr:housenumber" v="18"/>
+  <tag k="addr:street" v="Hillhouse Road"/>
+ </node>
+ <node id="12418371610" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7577893" lon="145.1615288">
+  <tag k="addr:housenumber" v="19"/>
+  <tag k="addr:street" v="Hillhouse Road"/>
+ </node>
+ <node id="12418371611" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7582704" lon="145.1600990">
+  <tag k="addr:housenumber" v="20"/>
+  <tag k="addr:street" v="Hillhouse Road"/>
+ </node>
+ <node id="12418371612" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7578557" lon="145.1617219">
+  <tag k="addr:housenumber" v="21"/>
+  <tag k="addr:street" v="Hillhouse Road"/>
+ </node>
+ <node id="12418371613" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7583356" lon="145.1602215">
+  <tag k="addr:housenumber" v="22"/>
+  <tag k="addr:street" v="Hillhouse Road"/>
+ </node>
+ <node id="12418371614" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7582945" lon="145.1604840">
+  <tag k="addr:housenumber" v="24"/>
+  <tag k="addr:street" v="Hillhouse Road"/>
+ </node>
+ <node id="12418371615" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7583158" lon="145.1606760">
+  <tag k="addr:housenumber" v="26"/>
+  <tag k="addr:street" v="Hillhouse Road"/>
+ </node>
+ <node id="12418371616" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7583375" lon="145.1608910">
+  <tag k="addr:housenumber" v="28"/>
+  <tag k="addr:street" v="Hillhouse Road"/>
+ </node>
+ <node id="12418371617" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7583497" lon="145.1610833">
+  <tag k="addr:housenumber" v="30"/>
+  <tag k="addr:street" v="Hillhouse Road"/>
+ </node>
+ <node id="12418371618" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7583893" lon="145.1612985">
+  <tag k="addr:housenumber" v="32"/>
+  <tag k="addr:street" v="Hillhouse Road"/>
+ </node>
+ <node id="12418371619" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7581883" lon="145.1617016">
+  <tag k="addr:housenumber" v="38"/>
+  <tag k="addr:street" v="Hillhouse Road"/>
+ </node>
+ <node id="12418371620" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7580364" lon="145.1617738">
+  <tag k="addr:housenumber" v="40"/>
+  <tag k="addr:street" v="Hillhouse Road"/>
+ </node>
+ <node id="12418371953" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7590055" lon="145.1580549">
+  <tag k="addr:housenumber" v="1"/>
+  <tag k="addr:street" v="Louisa Place"/>
+ </node>
+ <node id="12418371954" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7591764" lon="145.1580264">
+  <tag k="addr:housenumber" v="2"/>
+  <tag k="addr:street" v="Louisa Place"/>
+ </node>
+ <node id="12418371955" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7593475" lon="145.1579992">
+  <tag k="addr:housenumber" v="3"/>
+  <tag k="addr:street" v="Louisa Place"/>
+ </node>
+ <node id="12418371956" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7595080" lon="145.1579725">
+  <tag k="addr:housenumber" v="4"/>
+  <tag k="addr:street" v="Louisa Place"/>
+ </node>
+ <node id="12418371957" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7596606" lon="145.1579459">
+  <tag k="addr:housenumber" v="5"/>
+  <tag k="addr:street" v="Louisa Place"/>
+ </node>
+ <node id="12418371958" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7598141" lon="145.1579191">
+  <tag k="addr:housenumber" v="6"/>
+  <tag k="addr:street" v="Louisa Place"/>
+ </node>
+ <node id="12418371959" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7599586" lon="145.1578927">
+  <tag k="addr:housenumber" v="7"/>
+  <tag k="addr:street" v="Louisa Place"/>
+ </node>
+ <node id="12418371964" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7599160" lon="145.1575211">
+  <tag k="addr:housenumber" v="13"/>
+  <tag k="addr:street" v="Louisa Place"/>
+ </node>
+ <node id="12418371965" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7597650" lon="145.1575586">
+  <tag k="addr:housenumber" v="14"/>
+  <tag k="addr:street" v="Louisa Place"/>
+ </node>
+ <node id="12418371966" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7596290" lon="145.1575735">
+  <tag k="addr:housenumber" v="15"/>
+  <tag k="addr:street" v="Louisa Place"/>
+ </node>
+ <node id="12418371967" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7594491" lon="145.1576234">
+  <tag k="addr:housenumber" v="16"/>
+  <tag k="addr:street" v="Louisa Place"/>
+ </node>
+ <node id="12418371968" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7592883" lon="145.1576385">
+  <tag k="addr:housenumber" v="17"/>
+  <tag k="addr:street" v="Louisa Place"/>
+ </node>
+ <node id="12418371969" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7591354" lon="145.1576650">
+  <tag k="addr:housenumber" v="18"/>
+  <tag k="addr:street" v="Louisa Place"/>
+ </node>
+ <node id="12418372320" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7585221" lon="145.1566950">
+  <tag k="addr:housenumber" v="15"/>
+  <tag k="addr:street" v="Oliver Road"/>
+ </node>
+ <node id="12418372340" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7585345" lon="145.1569223">
+  <tag k="addr:housenumber" v="17"/>
+  <tag k="addr:street" v="Oliver Road"/>
+ </node>
+ <node id="12418372342" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7585661" lon="145.1572397">
+  <tag k="addr:housenumber" v="19"/>
+  <tag k="addr:street" v="Oliver Road"/>
+ </node>
+ <node id="12418372343" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7586201" lon="145.1578515">
+  <tag k="addr:housenumber" v="23"/>
+  <tag k="addr:street" v="Oliver Road"/>
+ </node>
+ <node id="12418373126" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7588798" lon="145.1568877">
+  <tag k="addr:housenumber" v="1"/>
+  <tag k="addr:street" v="Valencia Terrace"/>
+ </node>
+ <node id="12418373127" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7590760" lon="145.1568486">
+  <tag k="addr:housenumber" v="2"/>
+  <tag k="addr:street" v="Valencia Terrace"/>
+ </node>
+ <node id="12418373128" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7592572" lon="145.1567870">
+  <tag k="addr:housenumber" v="3"/>
+  <tag k="addr:street" v="Valencia Terrace"/>
+ </node>
+ <node id="12418373129" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7594181" lon="145.1567036">
+  <tag k="addr:housenumber" v="4"/>
+  <tag k="addr:street" v="Valencia Terrace"/>
+ </node>
+ <node id="12418373130" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7595712" lon="145.1566770">
+  <tag k="addr:housenumber" v="5"/>
+  <tag k="addr:street" v="Valencia Terrace"/>
+ </node>
+ <node id="12418373191" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7581424" lon="145.1578861">
+  <tag k="addr:housenumber" v="1"/>
+  <tag k="addr:street" v="Warrick Grove"/>
+ </node>
+ <node id="12418373192" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7581019" lon="145.1575571">
+  <tag k="addr:housenumber" v="2"/>
+  <tag k="addr:street" v="Warrick Grove"/>
+ </node>
+ <node id="12418373193" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7580702" lon="145.1572169">
+  <tag k="addr:housenumber" v="3"/>
+  <tag k="addr:street" v="Warrick Grove"/>
+ </node>
+ <node id="12418373194" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7580389" lon="145.1568724">
+  <tag k="addr:housenumber" v="4"/>
+  <tag k="addr:street" v="Warrick Grove"/>
+ </node>
+ <node id="12418373197" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7577661" lon="145.1573042">
+  <tag k="addr:housenumber" v="9"/>
+  <tag k="addr:street" v="Warrick Grove"/>
+ </node>
+ <node id="12418373198" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7577971" lon="145.1576203">
+  <tag k="addr:housenumber" v="10"/>
+  <tag k="addr:street" v="Warrick Grove"/>
+ </node>
+ <node id="12418373199" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7578367" lon="145.1579027">
+  <tag k="addr:housenumber" v="11"/>
+  <tag k="addr:street" v="Warrick Grove"/>
+ </node>
+ <node id="12418373325" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7575286" lon="145.1616653">
+  <tag k="addr:housenumber" v="9"/>
+  <tag k="addr:street" v="Woodlands Edge"/>
+ </node>
+ <node id="12418373372" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7576560" lon="145.1605700">
+  <tag k="addr:housenumber" v="11A"/>
+  <tag k="addr:street" v="Hillhouse Road"/>
+ </node>
+ <node id="12418373395" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7590322" lon="145.1603649">
+  <tag k="addr:housenumber" v="9"/>
+  <tag k="addr:street" v="Castlebar Way"/>
+ </node>
+ <node id="12418373433" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7578431" lon="145.1601599">
+  <tag k="addr:housenumber" v="16"/>
+  <tag k="addr:street" v="Hillhouse Road"/>
+ </node>
+ <node id="12418373441" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7587993" lon="145.1595565">
+  <tag k="addr:housenumber" v="29A"/>
+  <tag k="addr:street" v="Oliver Road"/>
+ </node>
+ <node id="12418373442" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7585669" lon="145.1595249">
+  <tag k="addr:housenumber" v="29B"/>
+  <tag k="addr:street" v="Oliver Road"/>
+ </node>
+ <node id="12418373566" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7577996" lon="145.1598115">
+  <tag k="addr:housenumber" v="16A"/>
+  <tag k="addr:street" v="Hillhouse Road"/>
+ </node>
+ <node id="12418373631" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7586933" lon="145.1586363">
+  <tag k="addr:housenumber" v="25"/>
+  <tag k="addr:street" v="Oliver Road"/>
+ </node>
+ <node id="12418373666" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7584117" lon="145.1589585">
+  <tag k="addr:housenumber" v="3"/>
+  <tag k="addr:street" v="Emerald Rise"/>
+ </node>
+ <node id="12418373667" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7582727" lon="145.1589393">
+  <tag k="addr:housenumber" v="4"/>
+  <tag k="addr:street" v="Emerald Rise"/>
+ </node>
+ <node id="12418373668" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7581973" lon="145.1592024">
+  <tag k="addr:housenumber" v="17"/>
+  <tag k="addr:street" v="Emerald Rise"/>
+ </node>
+ <node id="12418373669" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7581171" lon="145.1589612">
+  <tag k="addr:housenumber" v="5"/>
+  <tag k="addr:street" v="Emerald Rise"/>
+ </node>
+ <node id="12418373670" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7580314" lon="145.1592330">
+  <tag k="addr:housenumber" v="16"/>
+  <tag k="addr:street" v="Emerald Rise"/>
+ </node>
+ <node id="12418373671" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7579924" lon="145.1589846">
+  <tag k="addr:housenumber" v="6"/>
+  <tag k="addr:street" v="Emerald Rise"/>
+ </node>
+ <node id="12418373672" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7578366" lon="145.1592703">
+  <tag k="addr:housenumber" v="15"/>
+  <tag k="addr:street" v="Emerald Rise"/>
+ </node>
+ <node id="12418373673" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7578536" lon="145.1590104">
+  <tag k="addr:housenumber" v="7"/>
+  <tag k="addr:street" v="Emerald Rise"/>
+ </node>
+ <node id="12418373674" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7576253" lon="145.1593191">
+  <tag k="addr:housenumber" v="14"/>
+  <tag k="addr:street" v="Emerald Rise"/>
+ </node>
+ <node id="12418373675" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7576818" lon="145.1590177">
+  <tag k="addr:housenumber" v="8"/>
+  <tag k="addr:street" v="Emerald Rise"/>
+ </node>
+ <node id="12418373676" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7575180" lon="145.1590157">
+  <tag k="addr:housenumber" v="9"/>
+  <tag k="addr:street" v="Emerald Rise"/>
+ </node>
+ <node id="12418373678" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7574229" lon="145.1593397">
+  <tag k="addr:housenumber" v="11"/>
+  <tag k="addr:street" v="Emerald Rise"/>
+ </node>
+ <node id="12418373679" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7574981" lon="145.1596154">
+  <tag k="addr:housenumber" v="12"/>
+  <tag k="addr:street" v="Emerald Rise"/>
+ </node>
+ <node id="12418373680" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7576499" lon="145.1595877">
+  <tag k="addr:housenumber" v="13"/>
+  <tag k="addr:street" v="Emerald Rise"/>
+ </node>
+ <node id="12418373683" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7587117" lon="145.1591822">
+  <tag k="addr:housenumber" v="27"/>
+  <tag k="addr:street" v="Oliver Road"/>
+ </node>
+ <node id="12418373684" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7587056" lon="145.1589272">
+  <tag k="addr:housenumber" v="1"/>
+  <tag k="addr:street" v="Emerald Rise"/>
+ </node>
+ <node id="12418373685" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7585519" lon="145.1592120">
+  <tag k="addr:housenumber" v="19"/>
+  <tag k="addr:street" v="Emerald Rise"/>
+ </node>
+ <node id="12418373686" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7585432" lon="145.1589577">
+  <tag k="addr:housenumber" v="2"/>
+  <tag k="addr:street" v="Emerald Rise"/>
+ </node>
+ <node id="12418373687" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7583694" lon="145.1592068">
+  <tag k="addr:housenumber" v="18"/>
+  <tag k="addr:street" v="Emerald Rise"/>
+ </node>
+ <node id="12418373924" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7588992" lon="145.1598818">
+  <tag k="addr:housenumber" v="31"/>
+  <tag k="addr:street" v="Oliver Road"/>
+  <tag k="addr:unit" v="1"/>
+ </node>
+ <node id="12418373925" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7587557" lon="145.1599081">
+  <tag k="addr:housenumber" v="31"/>
+  <tag k="addr:street" v="Oliver Road"/>
+  <tag k="addr:unit" v="2"/>
+ </node>
+ <node id="12418373981" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7589742" lon="145.1601320">
+  <tag k="addr:housenumber" v="31"/>
+  <tag k="addr:street" v="Oliver Road"/>
+  <tag k="addr:unit" v="6"/>
+ </node>
+ <node id="12418374130" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7586093" lon="145.1600108">
+  <tag k="addr:housenumber" v="31"/>
+  <tag k="addr:street" v="Oliver Road"/>
+  <tag k="addr:unit" v="3"/>
+ </node>
+ <node id="12418374149" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7586239" lon="145.1601302">
+  <tag k="addr:housenumber" v="31"/>
+  <tag k="addr:street" v="Oliver Road"/>
+  <tag k="addr:unit" v="4"/>
+ </node>
+ <node id="12418374186" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7587997" lon="145.1601647">
+  <tag k="addr:housenumber" v="31"/>
+  <tag k="addr:street" v="Oliver Road"/>
+  <tag k="addr:unit" v="5"/>
+ </node>
+ <node id="12418374245" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7575905" lon="145.1602215">
+  <tag k="addr:housenumber" v="12"/>
+  <tag k="addr:street" v="Hillhouse Road"/>
+ </node>
+ <node id="12418374251" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7575019" lon="145.1602149">
+  <tag k="addr:housenumber" v="12"/>
+  <tag k="addr:street" v="Hillhouse Road"/>
+  <tag k="addr:unit" v="1"/>
+ </node>
+ <node id="12418374252" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7574651" lon="145.1599920">
+  <tag k="addr:housenumber" v="12"/>
+  <tag k="addr:street" v="Hillhouse Road"/>
+  <tag k="addr:unit" v="2"/>
+ </node>
+ <node id="12418374253" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7574509" lon="145.1598784">
+  <tag k="addr:housenumber" v="12"/>
+  <tag k="addr:street" v="Hillhouse Road"/>
+  <tag k="addr:unit" v="3"/>
+ </node>
+ <node id="12418374390" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7577349" lon="145.1569920">
+  <tag k="addr:housenumber" v="8"/>
+  <tag k="addr:street" v="Warrick Grove"/>
+ </node>
+ <node id="12418374391" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7577503" lon="145.1571249">
+  <tag k="addr:housenumber" v="8A"/>
+  <tag k="addr:street" v="Warrick Grove"/>
+ </node>
+ <node id="12418374402" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7599728" lon="145.1566859">
+  <tag k="addr:housenumber" v="8"/>
+  <tag k="addr:street" v="Valencia Terrace"/>
+ </node>
+ <node id="12418374429" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7585874" lon="145.1574658">
+  <tag k="addr:housenumber" v="21"/>
+  <tag k="addr:street" v="Oliver Road"/>
+ </node>
+ <node id="12418374430" visible="true" version="1" changeset="160231903" timestamp="2024-12-13T05:46:18Z" user="vicmap_import" uid="13371216" lat="-37.7586050" lon="145.1576180">
+  <tag k="addr:housenumber" v="21A"/>
+  <tag k="addr:street" v="Oliver Road"/>
+ </node>
+ <way id="34626884" visible="true" version="11" changeset="141845247" timestamp="2023-09-28T04:29:57Z" user="malgalin" uid="20348865">
+  <nd ref="402511769"/>
+  <nd ref="773160663"/>
+  <nd ref="773160618"/>
+  <nd ref="402513376"/>
+  <nd ref="402512501"/>
+  <nd ref="402512070"/>
+  <nd ref="2838809117"/>
+  <nd ref="2838809116"/>
+  <nd ref="2838809118"/>
+  <nd ref="402512015"/>
+  <nd ref="402512017"/>
+  <nd ref="402512018"/>
+  <tag k="highway" v="residential"/>
+  <tag k="name" v="Oliver Road"/>
+  <tag k="sidewalk" v="right"/>
+  <tag k="surface" v="asphalt"/>
+ </way>
+ <way id="34626897" visible="true" version="7" changeset="141941797" timestamp="2023-09-30T08:54:53Z" user="malgalin" uid="20348865">
+  <nd ref="402512070"/>
+  <nd ref="402512145"/>
+  <nd ref="402512136"/>
+  <nd ref="402512137"/>
+  <nd ref="402512138"/>
+  <nd ref="402512139"/>
+  <nd ref="402512140"/>
+  <nd ref="402512141"/>
+  <nd ref="402512142"/>
+  <nd ref="402512143"/>
+  <nd ref="402512144"/>
+  <tag k="highway" v="residential"/>
+  <tag k="name" v="Bedervale Drive"/>
+  <tag k="sidewalk" v="both"/>
+  <tag k="surface" v="asphalt"/>
+ </way>
+ <way id="34626901" visible="true" version="6" changeset="141941797" timestamp="2023-09-30T08:58:39Z" user="malgalin" uid="20348865">
+  <nd ref="402512145"/>
+  <nd ref="402512154"/>
+  <tag k="highway" v="residential"/>
+  <tag k="name" v="Warrick Grove"/>
+  <tag k="sidewalk" v="both"/>
+  <tag k="surface" v="asphalt"/>
+ </way>
+ <way id="34626926" visible="true" version="7" changeset="141941797" timestamp="2023-09-30T09:00:06Z" user="malgalin" uid="20348865">
+  <nd ref="402512501"/>
+  <nd ref="402512640"/>
+  <tag k="highway" v="residential"/>
+  <tag k="name" v="Louisa Place"/>
+  <tag k="sidewalk" v="both"/>
+  <tag k="source" v="bing"/>
+  <tag k="surface" v="asphalt"/>
+ </way>
+ <way id="34626941" visible="true" version="9" changeset="142131983" timestamp="2023-10-04T08:09:58Z" user="malgalin" uid="20348865">
+  <nd ref="402512826"/>
+  <nd ref="402512873"/>
+  <nd ref="9074965738"/>
+  <nd ref="402512874"/>
+  <nd ref="402512875"/>
+  <nd ref="402512876"/>
+  <nd ref="402512877"/>
+  <nd ref="402512878"/>
+  <nd ref="402512879"/>
+  <nd ref="9074965744"/>
+  <nd ref="402512880"/>
+  <nd ref="9074965741"/>
+  <nd ref="402512960"/>
+  <nd ref="402512015"/>
+  <tag k="highway" v="residential"/>
+  <tag k="name" v="Fielding Way"/>
+  <tag k="sidewalk" v="both"/>
+  <tag k="source" v="bing"/>
+  <tag k="surface" v="asphalt"/>
+ </way>
+ <way id="34626980" visible="true" version="7" changeset="141941797" timestamp="2023-09-30T09:01:10Z" user="malgalin" uid="20348865">
+  <nd ref="402513376"/>
+  <nd ref="402513646"/>
+  <nd ref="402513648"/>
+  <nd ref="402513650"/>
+  <tag k="highway" v="residential"/>
+  <tag k="name" v="Valencia Terrace"/>
+  <tag k="sidewalk" v="both"/>
+  <tag k="source" v="bing"/>
+  <tag k="surface" v="asphalt"/>
+ </way>
+ <way id="37858615" visible="true" version="4" changeset="22157807" timestamp="2014-05-06T01:58:19Z" user="Rhubarb" uid="69319">
+  <nd ref="444086727"/>
+  <nd ref="2838809123"/>
+  <nd ref="2838809122"/>
+  <nd ref="444086729"/>
+  <tag k="highway" v="residential"/>
+  <tag k="lit" v="yes"/>
+  <tag k="name" v="Galway Close"/>
+  <tag k="source" v="bing"/>
+  <tag k="source:name" v="survey"/>
+  <tag k="surface" v="asphalt"/>
+ </way>
+ <way id="37858617" visible="true" version="4" changeset="22157807" timestamp="2014-05-06T01:58:21Z" user="Rhubarb" uid="69319">
+  <nd ref="444086742"/>
+  <nd ref="2838809119"/>
+  <nd ref="2838809120"/>
+  <nd ref="2838809121"/>
+  <nd ref="402512018"/>
+  <tag k="access" v="private"/>
+  <tag k="highway" v="service"/>
+  <tag k="source" v="bing"/>
+ </way>
+ <way id="37858618" visible="true" version="6" changeset="110941745" timestamp="2021-09-08T23:53:09Z" user="MapAbility" uid="13782447">
+  <nd ref="444086744"/>
+  <nd ref="444086746"/>
+  <nd ref="444086749"/>
+  <nd ref="444086751"/>
+  <nd ref="444086754"/>
+  <nd ref="444086756"/>
+  <nd ref="1863975574"/>
+  <nd ref="444086758"/>
+  <tag k="highway" v="residential"/>
+  <tag k="lit" v="yes"/>
+  <tag k="name" v="Castlebar Way"/>
+  <tag k="source" v="bing"/>
+  <tag k="source:name" v="survey"/>
+  <tag k="surface" v="asphalt"/>
+ </way>
+ <way id="37858619" visible="true" version="5" changeset="22157807" timestamp="2014-05-06T01:58:20Z" user="Rhubarb" uid="69319">
+  <nd ref="444086761"/>
+  <nd ref="444086763"/>
+  <nd ref="444086766"/>
+  <nd ref="444086773"/>
+  <nd ref="2838809113"/>
+  <nd ref="2838809112"/>
+  <nd ref="444086774"/>
+  <nd ref="444086776"/>
+  <nd ref="444086787"/>
+  <nd ref="2838809103"/>
+  <nd ref="444086780"/>
+  <tag k="highway" v="residential"/>
+  <tag k="name" v="Hillhouse Road"/>
+  <tag k="oneway" v="no"/>
+  <tag k="source" v="bing"/>
+ </way>
+ <way id="93412100" visible="true" version="13" changeset="151938586" timestamp="2024-05-28T11:02:32Z" user="SpecializedRider" uid="2093277">
+  <nd ref="544321624"/>
+  <nd ref="603009399"/>
+  <nd ref="544321632"/>
+  <nd ref="544321634"/>
+  <nd ref="544321636"/>
+  <nd ref="544321638"/>
+  <nd ref="544321640"/>
+  <nd ref="544321642"/>
+  <nd ref="544321643"/>
+  <nd ref="544320387"/>
+  <nd ref="544321647"/>
+  <nd ref="9074996038"/>
+  <nd ref="444087760"/>
+  <nd ref="1863975573"/>
+  <nd ref="444087761"/>
+  <nd ref="9074996026"/>
+  <nd ref="444087762"/>
+  <nd ref="444087763"/>
+  <nd ref="9074996040"/>
+  <nd ref="9074996039"/>
+  <nd ref="444087764"/>
+  <nd ref="444087765"/>
+  <nd ref="10701675209"/>
+  <nd ref="10701675208"/>
+  <nd ref="10701675207"/>
+  <nd ref="10701675206"/>
+  <nd ref="444087766"/>
+  <nd ref="10701675205"/>
+  <nd ref="10701675204"/>
+  <nd ref="444087767"/>
+  <nd ref="10701675203"/>
+  <nd ref="10701675202"/>
+  <nd ref="10701675201"/>
+  <nd ref="10701675200"/>
+  <nd ref="444087768"/>
+  <nd ref="10701675199"/>
+  <nd ref="10701675198"/>
+  <nd ref="10701675197"/>
+  <nd ref="10701675196"/>
+  <nd ref="10701675195"/>
+  <nd ref="10701675194"/>
+  <nd ref="10701675193"/>
+  <nd ref="10701675192"/>
+  <nd ref="10701675191"/>
+  <nd ref="444087770"/>
+  <nd ref="10701675190"/>
+  <nd ref="10701675189"/>
+  <nd ref="10701675188"/>
+  <nd ref="10701675187"/>
+  <nd ref="10701675186"/>
+  <nd ref="444087771"/>
+  <nd ref="10701675185"/>
+  <nd ref="10701675184"/>
+  <nd ref="444087772"/>
+  <nd ref="10701675183"/>
+  <nd ref="10701675182"/>
+  <nd ref="444087773"/>
+  <nd ref="10701675181"/>
+  <nd ref="10701675180"/>
+  <nd ref="10701675179"/>
+  <nd ref="444087774"/>
+  <nd ref="10701675178"/>
+  <nd ref="10701675177"/>
+  <nd ref="10701675176"/>
+  <nd ref="10701675175"/>
+  <nd ref="444087775"/>
+  <nd ref="10701675174"/>
+  <nd ref="10701675173"/>
+  <nd ref="10701675172"/>
+  <nd ref="444087776"/>
+  <nd ref="10701675159"/>
+  <nd ref="10701675158"/>
+  <nd ref="10701675157"/>
+  <nd ref="10701675156"/>
+  <nd ref="10701675155"/>
+  <nd ref="444087777"/>
+  <nd ref="10701675154"/>
+  <nd ref="10701675153"/>
+  <nd ref="444087778"/>
+  <nd ref="10701675145"/>
+  <nd ref="10223471718"/>
+  <nd ref="10701675143"/>
+  <nd ref="544304036"/>
+  <nd ref="10701675142"/>
+  <nd ref="10701675141"/>
+  <nd ref="544304037"/>
+  <nd ref="544304038"/>
+  <nd ref="10701675140"/>
+  <nd ref="544304039"/>
+  <nd ref="10701675139"/>
+  <nd ref="10701675131"/>
+  <nd ref="10701675132"/>
+  <nd ref="544304040"/>
+  <nd ref="10701675133"/>
+  <nd ref="10701675134"/>
+  <nd ref="10701675135"/>
+  <nd ref="10701675138"/>
+  <nd ref="10701675130"/>
+  <nd ref="544304042"/>
+  <nd ref="10701675129"/>
+  <nd ref="544304043"/>
+  <nd ref="10701675128"/>
+  <nd ref="10701675127"/>
+  <nd ref="544304044"/>
+  <nd ref="10701675126"/>
+  <nd ref="10701675125"/>
+  <nd ref="10701675251"/>
+  <nd ref="544304046"/>
+  <tag k="bicycle" v="designated"/>
+  <tag k="foot" v="designated"/>
+  <tag k="highway" v="cycleway"/>
+  <tag k="name" v="Green Gully Trail"/>
+  <tag k="segregated" v="no"/>
+  <tag k="surface" v="asphalt"/>
+ </way>
+ <way id="93412178" visible="true" version="5" changeset="110941745" timestamp="2021-09-08T23:53:09Z" user="MapAbility" uid="13782447">
+  <nd ref="1083027418"/>
+  <nd ref="1083027471"/>
+  <nd ref="9074996037"/>
+  <nd ref="1083027465"/>
+  <nd ref="1083027445"/>
+  <nd ref="9074996033"/>
+  <nd ref="9074996032"/>
+  <nd ref="9074996031"/>
+  <nd ref="1863975567"/>
+  <nd ref="1083027407"/>
+  <nd ref="1083027475"/>
+  <nd ref="1083027439"/>
+  <nd ref="4486714528"/>
+  <nd ref="1083027406"/>
+  <nd ref="1083027469"/>
+  <nd ref="1083027452"/>
+  <nd ref="4486714529"/>
+  <nd ref="1083027422"/>
+  <nd ref="1083027455"/>
+  <nd ref="4486714531"/>
+  <nd ref="4486714530"/>
+  <nd ref="1083027472"/>
+  <nd ref="1083027477"/>
+  <nd ref="4486714527"/>
+  <nd ref="4486714526"/>
+  <nd ref="1083027429"/>
+  <nd ref="1083027454"/>
+  <nd ref="1083027448"/>
+  <nd ref="1083027450"/>
+  <nd ref="1083027438"/>
+  <nd ref="1083027437"/>
+  <nd ref="9074996036"/>
+  <nd ref="1083027418"/>
+ </way>
+ <way id="175838445" visible="true" version="2" changeset="22157807" timestamp="2014-05-06T01:58:18Z" user="Rhubarb" uid="69319">
+  <nd ref="444086754"/>
+  <nd ref="1863975570"/>
+  <tag k="highway" v="residential"/>
+  <tag k="lit" v="yes"/>
+  <tag k="name" v="Castlebar Way"/>
+  <tag k="source" v="bing"/>
+  <tag k="source:name" v="survey"/>
+  <tag k="surface" v="asphalt"/>
+ </way>
+ <way id="175838446" visible="true" version="4" changeset="110941745" timestamp="2021-09-08T23:53:09Z" user="MapAbility" uid="13782447">
+  <nd ref="1863975573"/>
+  <nd ref="1863975572"/>
+  <nd ref="9074996025"/>
+  <nd ref="444086754"/>
+  <tag k="highway" v="path"/>
+  <tag k="source" v="local_knowledge; bing"/>
+  <tag k="surface" v="concrete"/>
+ </way>
+ <way id="279673360" visible="true" version="1" changeset="22157807" timestamp="2014-05-06T01:58:17Z" user="Rhubarb" uid="69319">
+  <nd ref="2838809108"/>
+  <nd ref="2838809106"/>
+  <nd ref="2838809107"/>
+  <nd ref="2838809109"/>
+  <nd ref="2838809110"/>
+  <nd ref="2838809111"/>
+  <nd ref="2838809114"/>
+  <nd ref="2838809115"/>
+  <nd ref="2838809118"/>
+  <tag k="highway" v="living_street"/>
+  <tag k="lit" v="yes"/>
+  <tag k="maxspeed" v="5"/>
+  <tag k="name" v="Emerald Rise"/>
+  <tag k="source" v="bing"/>
+  <tag k="surface" v="asphalt"/>
+ </way>
+ <way id="981065101" visible="true" version="2" changeset="129473444" timestamp="2022-11-28T11:53:20Z" user="kimo" uid="28961">
+  <nd ref="9074996026"/>
+  <nd ref="9074996030"/>
+  <nd ref="9074996027"/>
+  <nd ref="1863975569"/>
+  <tag k="highway" v="path"/>
+  <tag k="surface" v="asphalt"/>
+ </way>
+ <relation id="1357976" visible="true" version="10" changeset="133167182" timestamp="2023-03-01T11:17:16Z" user="ChonkerStonker" uid="12556129">
+  <member type="way" ref="43313112" role=""/>
+  <member type="way" ref="981064443" role=""/>
+  <member type="way" ref="37858651" role=""/>
+  <member type="way" ref="37858654" role=""/>
+  <member type="way" ref="43313120" role=""/>
+  <member type="way" ref="1117802402" role=""/>
+  <member type="way" ref="93412100" role=""/>
+  <member type="way" ref="1150411880" role=""/>
+  <member type="way" ref="1117802398" role=""/>
+  <member type="way" ref="1117802396" role=""/>
+  <member type="way" ref="783298015" role=""/>
+  <member type="way" ref="43312963" role=""/>
+  <member type="way" ref="27426143" role=""/>
+  <tag k="name" v="Green Gully Trail"/>
+  <tag k="network" v="rcn"/>
+  <tag k="route" v="bicycle"/>
+  <tag k="type" v="route"/>
+ </relation>
+ <relation id="2347884" visible="true" version="1" changeset="12710190" timestamp="2012-08-13T07:39:30Z" user="Rhubarb" uid="69319">
+  <member type="way" ref="93412178" role="outer"/>
+  <member type="way" ref="93412177" role="outer"/>
+  <tag k="leisure" v="park"/>
+  <tag k="name" v="Green Gully Linear Park"/>
+  <tag k="source" v="bing"/>
+  <tag k="source:name" v="survey"/>
+  <tag k="type" v="multipolygon"/>
+ </relation>
+</osm>

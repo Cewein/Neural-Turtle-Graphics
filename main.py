@@ -16,11 +16,11 @@ from visualisation import plot_graph
 
 # Data Loading
 # USE_OSM_DATA = True # Set to True to load from OSM files, False for synthetic data
-USE_OSM_DATA = False # Set to True to load from OSM files, False for synthetic data
+USE_OSM_DATA = True # Set to True to load from OSM files, False for synthetic data
 OSM_FILE_PATHS = [
     # !!! IMPORTANT !!!
     # Add the full paths to your .osm files here
-    'data\\aussie\\map_balmain.osm'
+    'data\\aussie\\map_glebe.osm'
         
 ]
 OSM_NETWORK_TYPE = 'Drive' # Type of network to extract ('drive', 'walk', 'bike', 'all')
@@ -53,7 +53,6 @@ GENERATED_GRAPH_PLOT_PATH = "generated_map.png"
 TRAINING_GRAPH_PLOT_PATH = "training_map_example.png"
 MAX_DISPLACEMENT = 200 # Max displacement for edges (in meters)
 
-# --- ADDED: Define some initial edges for generation ---
 # Simple initial structure: root node connects to two other nodes
 # Deltas are (dx, dy) relative to the root node's position (0,0)
 # Let's create one edge going right and one going up.
@@ -61,8 +60,7 @@ INITIAL_GENERATION_EDGES = [
     (0, 0),  # Node 1: 50m East of root
     (0, 10)   # Node 2: 50m North of root
 ]
-# You can experiment with different initial structures.
-# --- END ADDED ---
+
 
 
 # %%
@@ -110,8 +108,9 @@ else:
 
 # %% Plot an example graph from the loaded data
 if all_graphs:
-    plot_graph(all_graphs[0], title="Example Training Graph",
-               output_dir=OUTPUT_DIR, filename=TRAINING_GRAPH_PLOT_PATH, show=False)
+    for graph in all_graphs:
+        plot_graph(graph, title="Example Training Graph",
+               output_dir=OUTPUT_DIR, filename=TRAINING_GRAPH_PLOT_PATH, show=True)
 
 # %%
 #  2. Prepare Training Data
@@ -248,7 +247,7 @@ generated_G = generate_graph(model,
                              L_gen=GENERATION_L,
                              device=DEVICE)
 
-# %%- 7. Visualize Generated Graph ---
+# - 7. Visualize Generated Graph ---
 
 if generated_G and generated_G.number_of_nodes() > 0:
     print("\n--- Visualizing Generated Graph ---")
