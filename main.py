@@ -20,30 +20,20 @@ USE_OSM_DATA = True # Set to True to load from OSM files, False for synthetic da
 OSM_FILE_PATHS = [
     # !!! IMPORTANT !!!
     # Add the full paths to your .osm files here
-    'data/map_tokyo_0.osm', 
-    'data/map_tokyo_1.osm',
-    'data/map_tokyo_2.osm',
-    'data/map_tokyo_3.osm',
-    'data/map_tokyo_4.osm',
-    'data/map_tokyo_5.osm',
-    'data/map_tokyo_6.osm',
-    'data/map_tokyo_7.osm',
-    'data/map_tokyo_8.osm',
-    'data/map_tokyo_9.osm',
-    'data/map_tokyo_10.osm'
+    'data\\aussie\\map_balmain.osm'
         
 ]
-OSM_NETWORK_TYPE = 'drive' # Type of network to extract ('drive', 'walk', 'bike', 'all')
+OSM_NETWORK_TYPE = 'Drive' # Type of network to extract ('drive', 'walk', 'bike', 'all')
 
 # Synthetic Data Generation (if USE_OSM_DATA = False)
 NUM_SYNTHETIC_GRAPHS = 5
-GRID_SIZE = 6
+GRID_SIZE = 10
 SPACING = 20
 RANDOM_EDGES = 0
 
 # Data Preparation Parameters (from paper/model)
-K_PATHS = 5 # Number of incoming paths to sample (Sec 3.2, 3.5)
-L_PATHS = 10 # Max length of incoming paths (Sec 3.2, 3.5)
+K_PATHS = 3 # Number of incoming paths to sample (Sec 3.2, 3.5)
+L_PATHS = 5 # Max length of incoming paths (Sec 3.2, 3.5)
 
 # Training Parameters
 EPOCHS = 100 # Adjust as needed
@@ -61,7 +51,7 @@ OUTPUT_DIR = "ntg_output" # Directory for saving models and plots
 MODEL_SAVE_PATH = os.path.join(OUTPUT_DIR, "ntg_model.pth")
 GENERATED_GRAPH_PLOT_PATH = "generated_map.png"
 TRAINING_GRAPH_PLOT_PATH = "training_map_example.png"
-MAX_DISPLACEMENT = 100 # Max displacement for edges (in meters)
+MAX_DISPLACEMENT = 200 # Max displacement for edges (in meters)
 
 # --- ADDED: Define some initial edges for generation ---
 # Simple initial structure: root node connects to two other nodes
@@ -99,7 +89,7 @@ if USE_OSM_DATA:
          print(f"Warning: Found {len(valid_osm_paths)} valid paths out of {len(OSM_FILE_PATHS)} provided.")
 
     for filepath in valid_osm_paths:
-        graph = graph_from_osm(filepath, network_type=OSM_NETWORK_TYPE, simplify=False)
+        graph = graph_from_osm(filepath, network_type=OSM_NETWORK_TYPE, simplify=True)
         if graph and graph.number_of_nodes() > 0:
             all_graphs.append(graph)
         else:
@@ -134,7 +124,6 @@ train_data = prepare_training_data_from_graphs(all_graphs, K=K_PATHS, L=L_PATHS)
 if not train_data:
     print("\nError: No training data could be prepared. Exiting.")
     # Common reasons: graphs too small, K/L values too large, issues with node positions.
-    exit()
 
 # %%
 #  3. Initialize Model
@@ -254,12 +243,13 @@ print("\n--- Generating New Road Layout Graph ---")
 generated_G = generate_graph(model,
                              start_node_pos=start_node_pos, # Use the position found
                              initial_edges=real_initial_deltas, # Use the calculated deltas
-                             max_nodes=MAX_GENERATED_NODES,
+                             max_nodes=200,
                              K_gen=GENERATION_K,
                              L_gen=GENERATION_L,
                              device=DEVICE)
 
 # %%- 7. Visualize Generated Graph ---
+
 if generated_G and generated_G.number_of_nodes() > 0:
     print("\n--- Visualizing Generated Graph ---")
     plot_graph(generated_G, title=f"Generated Road Layout ({generated_G.number_of_nodes()} nodes)",

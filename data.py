@@ -6,7 +6,7 @@ from osm_parser import graph_from_osm # Import the new OSM parser
 
 # --- Constants from Model (for clamping) ---
 # Ensure this matches the value in model.py
-MAX_DISPLACEMENT = 100
+MAX_DISPLACEMENT = 200
 # --- End Constants ---
 
 def sample_paths_for_node(G, node, K=5, L=10):

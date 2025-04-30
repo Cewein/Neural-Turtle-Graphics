@@ -4,7 +4,7 @@ import torch.nn.functional as F
 import math # For safety break comparison
 
 # Discrete motion vector range and embedding dimensions
-MAX_DISPLACEMENT = 100  # corresponds to +/- 100m (inclusive)
+MAX_DISPLACEMENT = 200  # corresponds to +/- 100m (inclusive)
 VOCAB_SIZE = 2 * MAX_DISPLACEMENT + 1  # indices 0..200 representing -100..+100
 EMBED_SIZE = 64 # Embedding dimension (not specified in paper, 64 is reasonable)
 HIDDEN_SIZE = 500  # GRU hidden size as mentioned in NTG paper (Sec 3.4)
