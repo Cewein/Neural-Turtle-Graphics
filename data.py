@@ -6,7 +6,7 @@ from osm_parser import graph_from_osm # Import the new OSM parser
 
 # --- Constants from Model (for clamping) ---
 # Ensure this matches the value in model.py
-MAX_DISPLACEMENT = 200
+MAX_DISPLACEMENT = 300
 # --- End Constants ---
 
 def _perform_random_walk(G, start_node, max_length_L):
@@ -267,45 +267,175 @@ def generate_synthetic_graphs(num_graphs=5, grid_size=5, spacing=20, random_extr
     for _ in range(num_graphs):
         G = nx.Graph()
         pos_dict = {}
-
-        # 1) Create all grid nodes
+        # Create grid nodes and edges (4-neighbor connectivity)
         for i in range(grid_size):
             for j in range(grid_size):
                 node_id = (i, j)
-                pos_dict[node_id] = (i * spacing, j * spacing)
+                node_pos = (i * spacing, j * spacing)
                 G.add_node(node_id)
+                pos_dict[node_id] = node_pos
+                # Add edges only if the neighbor node exists (avoids index errors at boundary)
+                if i < grid_size - 1:  # horizontal edge to the right
+                     neighbor_id = (i+1, j)
+                     if neighbor_id in G: G.add_edge(node_id, neighbor_id)
+                if j < grid_size - 1:  # vertical edge upwards
+                     neighbor_id = (i, j+1)
+                     if neighbor_id in G: G.add_edge(node_id, neighbor_id)
+                # Also add edges to left and down for completeness if desired,
+                # but the above covers all edges once.
 
-        # 2) Add the 4‐neighbour grid edges
-        for i in range(grid_size):
-            for j in range(grid_size):
-                node_id = (i, j)
-                if i < grid_size - 1:
-                    G.add_edge(node_id, (i + 1, j))
-                if j < grid_size - 1:
-                    G.add_edge(node_id, (i, j + 1))
+        nx.set_node_attributes(G, pos_dict, 'pos') # Set positions after creating all nodes
 
-        # 3) Attach positions
-        nx.set_node_attributes(G, pos_dict, 'pos')
-
-        # 4) Sprinkle in a few random “short” edges
+        # Add random extra edges to introduce cycles/diagonals
         nodes = list(G.nodes())
         added = 0
         attempts = 0
-        max_attempts = random_extra_edges * 10
+        max_attempts = random_extra_edges * 10 # Avoid infinite loops if graph is small
 
         while added < random_extra_edges and attempts < max_attempts:
             attempts += 1
-            u, v = random.sample(nodes, 2)
+            if len(nodes) < 2: break # Need at least 2 nodes
+            u, v = random.sample(nodes, 2) # Use random.sample to ensure u != v
+
             if not G.has_edge(u, v):
-                ux, uy = G.nodes[u]['pos']
-                vx, vy = G.nodes[v]['pos']
-                # only add if “nearby” (within about diagonal + a bit)
-                if math.hypot(vx - ux, vy - uy) < 1.5 * spacing:
-                    G.add_edge(u, v)
-                    added += 1
-
+                # Only add if nodes are close (to keep roads local)
+                # Ensure nodes have 'pos' before accessing
+                if 'pos' in G.nodes[u] and 'pos' in G.nodes[v]:
+                    ux, uy = G.nodes[u]['pos']
+                    vx, vy = G.nodes[v]['pos']
+                    # Add edge if distance is less than sqrt(2)*spacing (diagonal) + epsilon
+                    if math.hypot(vx - ux, vy - uy) < 1.5 * spacing:
+                        G.add_edge(u, v)
+                        added += 1
         graphs.append(G)
-
     print(f"Generated {len(graphs)} synthetic graphs.")
     return graphs
 
+# --- NEW: Statistics Calculation ---
+
+def calculate_vector_angle(v1, v2):
+    """Calculates the angle between two 2D vectors in radians (0 to pi)."""
+    dot = v1[0] * v2[0] + v1[1] * v2[1]
+    det = v1[0] * v2[1] - v1[1] * v2[0] # Needed for atan2 for full range
+    angle_rad = math.atan2(det, dot) # Gives angle from v1 to v2 (-pi to pi)
+
+    # We want the minimum angle between them, so use absolute value
+    # But need to handle the range carefully. Let's use atan2 for each vector
+    # relative to x-axis and find the difference.
+    angle1 = math.atan2(v1[1], v1[0])
+    angle2 = math.atan2(v2[1], v2[0])
+    angle_diff = abs(angle1 - angle2)
+
+    # Normalize angle difference to be between 0 and pi
+    if angle_diff > math.pi:
+        angle_diff = 2 * math.pi - angle_diff
+    return angle_diff
+
+
+def calculate_graph_statistics(graphs, degree_percentile=99, angle_percentile=1):
+    """
+    Calculates statistics (max degree, min angle) from training graphs for generation constraints.
+
+    Args:
+        graphs (list[nx.Graph]): List of training graphs.
+        degree_percentile (float): Percentile for maximum allowed node degree.
+        angle_percentile (float): Percentile for minimum allowed angle between edges (in degrees).
+
+    Returns:
+        dict: A dictionary containing constraint thresholds, e.g.,
+              {'max_degree': int, 'min_angle_rad': float}
+              Returns None if graphs are empty or stats cannot be computed.
+    """
+    print("\n--- Calculating Statistics from Training Graphs ---")
+    all_degrees = []
+    min_angles_at_nodes = [] # Store the minimum angle found at each node with degree >= 2
+
+    if not graphs:
+        print("Warning: No graphs provided for statistics calculation.")
+        return None
+
+    pos_missing_count = 0
+    nodes_processed = 0
+    nodes_with_angles = 0
+
+    for G_idx, G in enumerate(graphs):
+        if not G: continue
+        pos = nx.get_node_attributes(G, 'pos')
+        if not pos:
+            print(f"Warning: Graph {G_idx} missing 'pos' attributes. Skipping.")
+            continue
+
+        # print(f"Processing graph {G_idx+1}/{len(graphs)} for stats...")
+        for node in G.nodes():
+            nodes_processed += 1
+            degree = G.degree(node)
+            all_degrees.append(degree)
+
+            if degree >= 2:
+                neighbors = list(G.neighbors(node))
+                if node not in pos:
+                     pos_missing_count += 1
+                     continue
+
+                node_pos = pos[node]
+                neighbor_vectors = []
+                valid_neighbors = 0
+                for nbr in neighbors:
+                    if nbr in pos:
+                        nbr_pos = pos[nbr]
+                        # Calculate vector from node to neighbor
+                        vec = (nbr_pos[0] - node_pos[0], nbr_pos[1] - node_pos[1])
+                        # Ensure vector is not zero length (shouldn't happen in simplified graph)
+                        if vec[0] != 0 or vec[1] != 0:
+                           neighbor_vectors.append(vec)
+                           valid_neighbors += 1
+                    else:
+                         pos_missing_count += 1
+
+
+                if valid_neighbors >= 2: # Need at least two vectors to calculate an angle
+                    nodes_with_angles += 1
+                    min_angle_for_node = math.pi # Initialize with max possible angle (180 deg)
+                    # Calculate angle between all pairs of neighbor vectors
+                    for i in range(len(neighbor_vectors)):
+                        for j in range(i + 1, len(neighbor_vectors)):
+                            angle = calculate_vector_angle(neighbor_vectors[i], neighbor_vectors[j])
+                            min_angle_for_node = min(min_angle_for_node, angle)
+
+                    # Only add valid angles (avoiding potential issues if min_angle_for_node remains pi)
+                    if min_angle_for_node < math.pi:
+                         min_angles_at_nodes.append(min_angle_for_node)
+
+
+    if pos_missing_count > 0:
+         print(f"Warning: Encountered {pos_missing_count} missing node positions during angle calculation.")
+
+    if not all_degrees:
+        print("Warning: Could not calculate degree statistics.")
+        return None
+
+    # Calculate thresholds using percentiles
+    max_degree_threshold = int(np.percentile(all_degrees, degree_percentile)) if all_degrees else 5 # Default fallback
+    min_angle_threshold_rad = np.percentile(min_angles_at_nodes, angle_percentile) if min_angles_at_nodes else 0.1 # Default fallback (radians)
+
+    # Convert min angle to degrees for printing
+    min_angle_threshold_deg = math.degrees(min_angle_threshold_rad)
+
+    print(f"Statistics calculated from {len(graphs)} graphs ({nodes_processed} nodes):")
+    print(f"  Node Degrees: Min={np.min(all_degrees)}, Max={np.max(all_degrees)}, Mean={np.mean(all_degrees):.2f}")
+    print(f"  Degree Threshold ({degree_percentile}th percentile): {max_degree_threshold}")
+    if min_angles_at_nodes:
+        print(f"  Min Angles (at {nodes_with_angles} nodes): Min={math.degrees(np.min(min_angles_at_nodes)):.2f}°, Max={math.degrees(np.max(min_angles_at_nodes)):.2f}°, Mean={math.degrees(np.mean(min_angles_at_nodes)):.2f}°")
+        print(f"  Min Angle Threshold ({angle_percentile}th percentile): {min_angle_threshold_deg:.2f}° ({min_angle_threshold_rad:.3f} rad)")
+    else:
+        print("  Warning: Could not calculate angle statistics (no nodes with degree >= 2 or issues found). Using default.")
+
+
+    constraints = {
+        'max_degree': max_degree_threshold,
+        'min_angle_rad': min_angle_threshold_rad
+    }
+    print(f"--- Statistics Calculation Finished. Constraints: {constraints} ---")
+    return constraints
+
+# --- End NEW ---
