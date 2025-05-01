@@ -1,0 +1,78 @@
+# config/config.yaml
+# Central configuration for the Neural Turtle Graphics (NTG) project
+
+# --- General Settings ---
+project_name: "NeuralTurtleGraphics"
+output_dir: "ntg_output"       # Directory for models, logs, plots, loss data
+device: "auto"                 # Device: "auto", "cuda", or "cpu"
+
+# --- Data Loading & Preparation ---
+data_source:
+  use_osm: true               # true to load from OSM, false for synthetic grid
+  osm:
+    file_paths:               # List of .osm file paths
+      - "data/aussie/map_balmain.osm" # <<< --- !!! UPDATE THIS PATH !!!
+    network_type: "drive"     # OSM network type ('drive', 'walk', 'bike', 'all')
+    simplify_graph: true      # Simplify graph topology during loading
+  synthetic:                  # Settings if use_osm is false
+    num_graphs: 5
+    grid_size: 10
+    spacing: 20
+    random_edges: 0
+
+# Data processing parameters (from paper/model)
+# K: Number of incoming paths sampled per node [Sec 3.2, 3.5]
+# L: Max length (edges) of sampled incoming paths [Sec 3.2, 3.5]
+paths:
+  k_paths: 5
+  l_paths: 7
+
+# --- Model Architecture ---
+# [Sec 3.4]
+model:
+  max_displacement: 300       # Max discrete displacement (e.g., 100m -> +/-100)
+  # vocab_size derived: 2 * max_displacement + 1
+  embed_size: 500             # Embedding dimension size
+  hidden_size: 500            # GRU hidden state size
+
+# --- Training ---
+training:
+  epochs: 200
+  batch_size: 128
+  learning_rate: 0.001        # 1e-3
+  weight_decay: 0.0001        # 1e-4
+  grad_clip: 1.0              # Gradient clipping threshold
+  loss_log_file: "training_loss.csv" # File to save epoch loss (in output_dir)
+
+# --- Generation ---
+generation:
+  max_nodes: 1000             # Max nodes in the generated graph
+  node_merge_distance: 5.0    # Max distance (meters) to merge nodes [Sec 3.5]
+  # Use same K, L as training for consistency, but can be overridden
+  k_gen: ${paths.k_paths}     # Reference training K
+  l_gen: ${paths.l_paths}     # Reference training L
+  # Initial seed structure for generation if no real seed is found/used
+  initial_seed_edges:
+    - [50, 0]   # (dx, dy) relative to root
+    - [0, 50]
+  # Constraints derived from training data statistics
+  constraints:
+    # Percentiles used to calculate constraints from training data stats
+    degree_percentile: 98     # Percentile for max allowed node degree
+    angle_percentile: 2       # Percentile for min allowed edge angle (degrees)
+    # Calculated values will be added here by main.py if enabled
+
+# --- Logging ---
+logging:
+  level: "INFO"               # Logging level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  date_format: "%Y-%m-%d %H:%M:%S"
+
+# --- Visualization ---
+visualization:
+  plot_training_example: true
+  training_plot_filename: "training_map_example.png"
+  generated_plot_filename: "generated_map.png"
+  loss_plot_filename: "training_loss_curve.png"
+  show_plots: true            # Show plots interactively
+
