@@ -38,7 +38,7 @@ model:
 # --- Training ---
 training:
   epochs: 200
-  batch_size: 128
+  batch_size: 256
   learning_rate: 0.001        # 1e-3
   weight_decay: 0.0001        # 1e-4
   grad_clip: 1.0              # Gradient clipping threshold
@@ -46,7 +46,7 @@ training:
 
 # --- Generation ---
 generation:
-  max_nodes: 1000             # Max nodes in the generated graph
+  max_nodes: 250             # Max nodes in the generated graph
   node_merge_distance: 5.0    # Max distance (meters) to merge nodes [Sec 3.5]
   # Use same K, L as training for consistency, but can be overridden
   k_gen: ${paths.k_paths}     # Reference training K

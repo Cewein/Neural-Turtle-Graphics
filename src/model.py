@@ -21,9 +21,9 @@ class NTGEncoder(nn.Module):
         self.max_displacement = config['model']['max_displacement']
         self.vocab_size = 2 * self.max_displacement + 1
         embed_size = config['model']['embed_size']
-        hidden_size = config['model']['hidden_size']
+        self.hidden_size = config['model']['hidden_size']
 
-        logger.info(f"Initializing NTGEncoder: vocab_size={self.vocab_size}, embed_size={embed_size}, hidden_size={hidden_size}")
+        logger.info(f"Initializing NTGEncoder: vocab_size={self.vocab_size}, embed_size={embed_size}, hidden_size={self.hidden_size}")
 
         # Embeddings for discretized Δx and Δy motion vectors
         self.embed_x = nn.Embedding(self.vocab_size, embed_size)
@@ -32,8 +32,7 @@ class NTGEncoder(nn.Module):
         # Bidirectional GRU [Sec 3.2]
         self.gru = nn.GRU(
             input_size=embed_size * 2, # Concatenated x and y embeddings
-            hidden_size=hidden_size,
-            num_layers=1,             # Paper implies single layer
+            hidden_size=self.hidden_size,
             batch_first=True,         # Input shape: (batch, seq_len, input_size)
             bidirectional=True
         )
@@ -51,7 +50,7 @@ class NTGEncoder(nn.Module):
         """
         # Determine device from parameters
         device = next(self.parameters()).device
-        hidden_size = self.gru.hidden_size # Get hidden size from GRU instance
+        hidden_size = self.hidden_size # Get hidden size from GRU instance
 
         if not incoming_paths:
             # Handle case with no incoming paths (e.g., root node during generation)
@@ -151,8 +150,8 @@ class NTGDecoder(nn.Module):
 
         # Project encoder output (bidirectional) to decoder initial hidden state (unidirectional)
         self.latent_to_hidden = nn.Linear(hidden_size * 2, hidden_size)
-        # Activation function for projection (optional, TanH is common for hidden states)
-        self.latent_activation = nn.Tanh()
+        # Activation function for projection (optional)
+        self.latent_activation = nn.LeakyReLU()
 
         # Decoder GRU (unidirectional) [Sec 3.2]
         self.gru = nn.GRU(
@@ -201,8 +200,7 @@ class NTGDecoder(nn.Module):
         if target_deltas is not None:
             # --- Training Mode (Teacher Forcing) --- [Sec 3.5, Ref: Williams & Zipser 1989]
             total_loss = torch.tensor(0.0, device=device)
-            # Use reduction='mean' or 'sum'? Summing individual losses and averaging per batch later.
-            loss_fn = nn.CrossEntropyLoss(reduction='sum')
+            loss_fn = nn.CrossEntropyLoss()
 
             # Prepare inputs: SOS followed by target deltas
             prev_dx_idx = sos_dx_idx
