@@ -24,16 +24,16 @@ data_source:
 # K: Number of incoming paths sampled per node [Sec 3.2, 3.5]
 # L: Max length (edges) of sampled incoming paths [Sec 3.2, 3.5]
 paths:
-  k_paths: 5
+  k_paths: 10
   l_paths: 7
 
 # --- Model Architecture ---
 # [Sec 3.4]
 model:
-  max_displacement: 300       # Max discrete displacement (e.g., 100m -> +/-100)
+  max_displacement: 200       # Max discrete displacement (e.g., 100m -> +/-100)
   # vocab_size derived: 2 * max_displacement + 1
-  embed_size: 500             # Embedding dimension size
-  hidden_size: 500            # GRU hidden state size
+  embed_size: 512             # Embedding dimension size
+  hidden_size: 512            # GRU hidden state size
 
 # --- Training ---
 training:
@@ -70,8 +70,8 @@ logging:
 
 # --- Visualization ---
 visualization:
-  plot_training_example: true
-  training_plot_filename: "training_map_example.png"
+  plot_training: true
+  training_plot_filename: "training_map.png"
   generated_plot_filename: "generated_map.png"
   loss_plot_filename: "training_loss_curve.png"
   show_plots: true            # Show plots interactively

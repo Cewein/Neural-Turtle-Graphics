@@ -150,7 +150,7 @@ class NTGDecoder(nn.Module):
 
         # Project encoder output (bidirectional) to decoder initial hidden state (unidirectional)
         self.latent_to_hidden = nn.Linear(hidden_size * 2, hidden_size)
-        # Activation function for projection (optional)
+        # Activation function for projection (optional, TanH is common for hidden states)
         self.latent_activation = nn.LeakyReLU()
 
         # Decoder GRU (unidirectional) [Sec 3.2]

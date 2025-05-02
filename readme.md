@@ -14,15 +14,15 @@ The NTG model operates like a virtual "turtle" drawing a road network graph. It 
 
 This implementation uses **OpenStreetMap (OSM)** data as the primary source for learning road network structures. It includes utilities to parse `.osm` files, filter for specific network types (like drivable roads), project coordinates to a metric space (meters), and prepare the data into the format required by the NTG model (sequences of incoming path coordinates and outgoing relative displacements). During generation, constraints derived from the training data (like maximum node degree and minimum angle between roads) can be applied to enhance the realism and topological validity of the generated layouts. Planarity is also enforced by preventing new road segments from crossing existing ones.
 
-#  Getting Started
+# Getting Started
 
 ## 1. Clone & Set Up the Environment
 
 1. **Clone the repository**
 
    ```bash
-   git clone <repository_url>
-   cd <repository_directory>
+   git clone https://github.com/Cewein/Neural-Turtle-Graphics
+   cd Neural-Turtle-Graphics
    ```
 
 2. **Create and activate a virtual environment**
@@ -36,12 +36,12 @@ This implementation uses **OpenStreetMap (OSM)** data as the primary source for 
    ```
 
 3. **Install dependencies**
+
    First install PyTorch (CPU or CUDA) per the instructions at [https://pytorch.org/](https://pytorch.org/). Then:
 
    ```bash
    pip install -r requirements.txt
    ```
-
 
 ## 2. Prepare OpenStreetMap (OSM) Data
 
