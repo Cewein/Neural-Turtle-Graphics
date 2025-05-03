@@ -9,14 +9,12 @@ This repository contains a Python implementation of the Neural Turtle Graphics (
 > [[Project Page](https://nv-tlabs.github.io/NTG)]
 
 ## Overview
+![NTG Workflow Diagram](example/workflow.png)
 
 The NTG model operates like a virtual "turtle" drawing a road network graph. It represents the layout as a graph where nodes are control points (intersections or bends) and edges are road segments. The core of the model is an **Encoder-Decoder architecture** based on Recurrent Neural Networks (specifically GRUs). The **Encoder** analyzes the local structure leading into a node by processing incoming paths represented as sequences of relative movements. It summarizes this local topology into a latent vector. The **Decoder** then takes this latent vector and sequentially predicts the relative coordinates (as discrete displacements) of new nodes connected to the current node, effectively drawing outgoing road segments. The generation process is iterative: starting from an initial seed, the model expands the graph node by node, using a queue to manage which nodes to process next, until a desired size or stopping condition is met.
 
 This implementation uses **OpenStreetMap (OSM)** data as the primary source for learning road network structures. It includes utilities to parse `.osm` files, filter for specific network types (like drivable roads), project coordinates to a metric space (meters), and prepare the data into the format required by the NTG model (sequences of incoming path coordinates and outgoing relative displacements). During generation, constraints derived from the training data (like maximum node degree and minimum angle between roads) can be applied to enhance the realism and topological validity of the generated layouts. Planarity is also enforced by preventing new road segments from crossing existing ones.
 
-# Overview
-
-![NTG Workflow Diagram](example/workflow.png)
 
 # Getting Started
 
