@@ -1,4 +1,4 @@
-# Neural Turtle Graphics (NTG) - Python Implementation
+# Neural Turtle Graphics (NTG) - Unofficial Implementation
 
 This repository contains a Python implementation of the Neural Turtle Graphics (NTG) model for generating city road layouts, based on the paper:
 
