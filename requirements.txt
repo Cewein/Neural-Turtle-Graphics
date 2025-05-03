@@ -1,0 +1,24 @@
+# requirements for Neural Turtle Graphics
+
+# Core ML/DL
+torch>=1.8.0       # PyTorch for deep learning
+
+# Note: Install PyTorch based on your system (CPU/GPU) from https://pytorch.org/
+# Example CPU-only install:
+# pip install torch 
+# Example CUDA install (check compatibility):
+# pip install torch --index-url https://download.pytorch.org/whl/cu118
+
+# Graph processing
+networkx>=2.5      # For graph manipulation
+osmnx>=1.1.0       # For loading OpenStreetMap data
+
+# Data handling & Utilities
+numpy>=1.19.0      # Numerical operations
+pyyaml>=5.4        # For reading YAML config files
+tqdm>=4.50.0       # Progress bars
+
+# Plotting
+matplotlib>=3.3.0  # For plotting graphs and loss curves
+pandas>=1.1.0      # For reading/handling loss CSV in plotting script
+
