@@ -1,4 +1,3 @@
-# data/dataset.py
 import math
 import networkx as nx
 import logging
@@ -6,7 +5,6 @@ from tqdm import tqdm
 from typing import List, Tuple, Dict, Any, Optional
 import random
 
-# Import utilities from the utils package
 from src.utils.graph_utils import sample_paths_for_node, Coord, NodeID
 
 logger = logging.getLogger(__name__)

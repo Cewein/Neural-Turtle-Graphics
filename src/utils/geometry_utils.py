@@ -33,10 +33,8 @@ def calculate_vector_angle(v1: Coord, v2: Coord) -> float:
 
     return angle_rad
 
-# --- Line Segment Intersection Helpers ---
 # Based on standard geometric algorithms (e.g., Cormen et al.)
 # Used for planarity checks during generation [Implied by Planar Graph Goal, Sec 3.1]
-
 def on_segment(p: Coord, q: Coord, r: Coord) -> bool:
     """
     Given three collinear points p, q, r, check if point q lies on line segment 'pr'.

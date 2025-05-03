@@ -1,4 +1,3 @@
-# train/generator.py
 import torch
 import networkx as nx
 import math
@@ -7,9 +6,8 @@ import logging
 from tqdm import tqdm
 from typing import List, Tuple, Dict, Any, Optional
 
-# Assuming the model is defined in model.ntg_model
+
 from src.model import NTGModel
-# Import utilities
 from src.utils.graph_utils import sample_paths_for_node, check_and_merge, Coord, NodeID
 from src.utils.geometry_utils import calculate_vector_angle, do_intersect
 

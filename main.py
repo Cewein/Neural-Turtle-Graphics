@@ -353,23 +353,42 @@ def initialize_and_train_model(
     # Runs the main training loop using the prepared data.
     # See: src/train/trainer.py::train_ntg
     # Paper Reference: [Sec 3.5 Learning] describes teacher forcing and optimization.
+
+    # Get training configuration parameters
+    trn_cfg = config.get('training', {})
+
+    # Get pretraining parameters
+    # Pretraining mode is optional, can be set in config to True/False
+    pretrain = trn_cfg.get('pretrain', False)
+    pretrained_model_path = trn_cfg.get('pretrained_model_path', None)
+
     logger.info("--- Starting Model Training ---")
     if not train_data:
-         logger.warning("Skipping training as no training data was prepared.")
+        logger.warning("Skipping training as no training data was prepared.")
+    elif pretrain:
+        logger.info("Pretraining mode enabled")
+        if pretrained_model_path and os.path.exists(pretrained_model_path):
+            logger.info(f"Loading pretrained model from {pretrained_model_path}")
+            try:
+                model.load_state_dict(torch.load(pretrained_model_path, map_location=device))
+                logger.info("Pretrained model loaded successfully.")
+            except Exception as e:
+                logger.error(f"Error loading pretrained model: {e}")
+                sys.exit(1)
     else:
         # train_ntg handles epoch loops, batching, loss calculation, backprop, logging loss to CSV.
         _ = train_ntg(model, train_data, config, device) # Loss history is saved by trainer
 
-    # --- Save Trained Model ---
-    # Saves the model's learned parameters (state dictionary) to a file.
-    model_filename = f"{config.get('project_name', 'ntg')}_model.pth"
-    model_save_path = os.path.join(config['output_dir'], model_filename)
-    logger.info(f"--- Saving Trained Model to {model_save_path} ---")
-    try:
-        torch.save(model.state_dict(), model_save_path)
-        logger.info("Model state dictionary saved successfully.")
-    except Exception as e:
-        logger.error(f"Error saving model state dictionary: {e}")
+        # --- Save Trained Model ---
+        # Saves the model's learned parameters (state dictionary) to a file.
+        model_filename = f"{config.get('project_name', 'ntg')}_model.pth"
+        model_save_path = os.path.join(config['output_dir'], model_filename)
+        logger.info(f"--- Saving Trained Model to {model_save_path} ---")
+        try:
+            torch.save(model.state_dict(), model_save_path)
+            logger.info("Model state dictionary saved successfully.")
+        except Exception as e:
+            logger.error(f"Error saving model state dictionary: {e}")
 
     return model
 
@@ -406,6 +425,9 @@ def prepare_generation_seed(
     # Get default seed edges from config if real data seed fails
     default_seed_edges = config.get('generation', {}).get('initial_seed_edges', [])
 
+    # Get minimum number of neighbors for seed node
+    min_neighbors = config.get('generation', {}).get('min_seed_node_neighbors', 2)
+
     # Attempt to find a suitable seed node and edges from the input graphs
     seed_graph: Optional[nx.Graph] = None
     if all_graphs:
@@ -416,7 +438,7 @@ def prepare_generation_seed(
     if seed_graph:
         pos_dict = nx.get_node_attributes(seed_graph, 'pos')
         # Prefer nodes with degree >= 2 (intersections) as starting points
-        candidate_nodes = [n for n, d in seed_graph.degree() if d >= 2 and n in pos_dict]
+        candidate_nodes = [n for n, d in seed_graph.degree() if d >= min_neighbors and n in pos_dict]
         if not candidate_nodes: # Fallback: any node with a position
             candidate_nodes = [n for n in seed_graph.nodes() if n in pos_dict]
 
@@ -469,7 +491,9 @@ def generate_and_visualize(
     device: torch.device,
     start_node_pos: Coord,
     initial_deltas: Optional[List[Tuple[int, int]]],
-    generation_constraints: Dict[str, float]
+    generation_constraints: Dict[str, float],
+    edge_width: float = 0.6
+
 ):
     """
     Generates a new road layout graph using the trained model and visualizes the result.
@@ -506,7 +530,9 @@ def generate_and_visualize(
             title=f"Generated Road Layout ({generated_G.number_of_nodes()} nodes)",
             output_dir=config['output_dir'],
             filename=vis_cfg.get('generated_plot_filename', 'generated_map.png'),
-            show=vis_cfg.get('show_plots', True)
+            show=vis_cfg.get('show_plots', True),
+            edge_width=3.0, # Thicker edges for visibility
+            edge_color='red'
         )
     else:
         # Log error if generation failed
@@ -541,9 +567,24 @@ def run_workflow(config_path: str):
             all_graphs[0], # Plot the first loaded graph
             title="Example Training Graph",
             output_dir=config['output_dir'],
-            filename=vis_cfg.get('training_plot_filename', 'training_map_example.png'),
-            show=vis_cfg.get('show_plots', True)
+            filename=vis_cfg.get('training_plot_filename', 'training_map_example_with_base.png'),
+            show=vis_cfg.get('show_plots', True),
+            add_basemap=True,
+            edge_width=3.0, # Thicker edges for visibility
+            edge_color='red'
         )
+
+        plot_graph(
+            all_graphs[0], # Plot the first loaded graph
+            title="Example Training Graph",
+            output_dir=config['output_dir'],
+            filename=vis_cfg.get('training_plot_filename', 'training_map_example.png'),
+            show=vis_cfg.get('show_plots', True),
+            add_basemap=False,
+            edge_width=3.0, # Thicker edges for visibility
+            edge_color='red'
+        )
+        
 
     # Step 5: Prepare training data and calculate generation constraints
     train_data, generation_constraints = prepare_data_and_constraints(all_graphs, config)

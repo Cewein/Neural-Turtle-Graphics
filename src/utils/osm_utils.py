@@ -100,7 +100,6 @@ def graph_from_osm(filepath: str, network_type: str = 'drive', simplify: bool = 
         G_proj = ox.project_graph(G_initial)
         logger.info(f"Projected graph: {G_proj.number_of_nodes()} nodes, {G_proj.number_of_edges()} edges.")
 
-        # --- Filtering Step ---
         if network_type.lower() == 'drive':
             allowed_highway_tags = get_drive_filter()
             logger.info(f"Applying 'drive' network filter.")
@@ -116,7 +115,6 @@ def graph_from_osm(filepath: str, network_type: str = 'drive', simplify: bool = 
         if G_filtered.number_of_nodes() == 0:
              logger.warning(f"Graph became empty after filtering for network type '{network_type}'.")
              return None
-        # --- End Filtering Step ---
 
         # Ensure graph is undirected for NTG (paper uses undirected graph G={V,E}) [Sec 3.1]
         logger.info("Converting filtered graph to undirected.")
@@ -175,29 +173,3 @@ def graph_from_osm(filepath: str, network_type: str = 'drive', simplify: bool = 
     except Exception as e:
         logger.error(f"Error processing OSM file {filepath}: {e}", exc_info=True) # Log traceback
         return None
-
-# Example usage (for testing)
-if __name__ == '__main__':
-    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    # !!! IMPORTANT: Replace with a valid path to an OSM file for testing !!!
-    test_osm_file = 'path/to/your/test_map.osm'
-    network = 'drive'
-
-    if not os.path.exists(test_osm_file):
-         logger.error(f"Test OSM file not found at {test_osm_file}")
-         logger.error("Please change the 'test_osm_file' variable in osm_utils.py to a valid path.")
-    else:
-        graph = graph_from_osm(test_osm_file, network_type=network, simplify=True)
-
-        if graph:
-            logger.info(f"Successfully loaded and filtered '{network}' graph from {test_osm_file}.")
-            logger.info(f"Graph nodes: {graph.number_of_nodes()}, edges: {graph.number_of_edges()}")
-            # Example: Check position of the first node if available
-            first_node = list(graph.nodes())[0]
-            if 'pos' in graph.nodes[first_node]:
-                 logger.info(f"Position of node {first_node}: {graph.nodes[first_node]['pos']}")
-            else:
-                 logger.warning(f"Node {first_node} has no 'pos' attribute.")
-        else:
-            logger.error(f"Failed to load or filter '{network}' graph from {test_osm_file}.")
-

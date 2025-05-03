@@ -14,7 +14,13 @@ The NTG model operates like a virtual "turtle" drawing a road network graph. It 
 
 This implementation uses **OpenStreetMap (OSM)** data as the primary source for learning road network structures. It includes utilities to parse `.osm` files, filter for specific network types (like drivable roads), project coordinates to a metric space (meters), and prepare the data into the format required by the NTG model (sequences of incoming path coordinates and outgoing relative displacements). During generation, constraints derived from the training data (like maximum node degree and minimum angle between roads) can be applied to enhance the realism and topological validity of the generated layouts. Planarity is also enforced by preventing new road segments from crossing existing ones.
 
+# Overview
+
+![NTG Workflow Diagram](example/workflow.png)
+
 # Getting Started
+
+> The default config use the pretrained weigths present in example. make `pretrain` to `false` to train your own network.
 
 ## 1. Clone & Set Up the Environment
 

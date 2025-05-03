@@ -1,5 +1,4 @@
-# config/config.yaml
-# Central configuration for the Neural Turtle Graphics (NTG) project
+# configuration for the Neural Turtle Graphics (NTG) project
 
 # --- General Settings ---
 project_name: "NeuralTurtleGraphics"
@@ -24,7 +23,7 @@ data_source:
 # K: Number of incoming paths sampled per node [Sec 3.2, 3.5]
 # L: Max length (edges) of sampled incoming paths [Sec 3.2, 3.5]
 paths:
-  k_paths: 10
+  k_paths: 5
   l_paths: 7
 
 # --- Model Architecture ---
@@ -37,6 +36,8 @@ model:
 
 # --- Training ---
 training:
+  pretrain: true             # true to load pretrained model weights
+  pretrained_model_path: "example\\NeuralTurtleGraphics_model_blamain.pth" # Path to pretrained model weights
   epochs: 200
   batch_size: 256
   learning_rate: 0.001        # 1e-3
@@ -46,7 +47,7 @@ training:
 
 # --- Generation ---
 generation:
-  max_nodes: 250             # Max nodes in the generated graph
+  max_nodes: 500             # Max nodes in the generated graph
   node_merge_distance: 5.0    # Max distance (meters) to merge nodes [Sec 3.5]
   # Use same K, L as training for consistency, but can be overridden
   k_gen: ${paths.k_paths}     # Reference training K
@@ -61,6 +62,7 @@ generation:
     degree_percentile: 98     # Percentile for max allowed node degree
     angle_percentile: 2       # Percentile for min allowed edge angle (degrees)
     # Calculated values will be added here by main.py if enabled
+  min_seed_node_neighbors: 3  # Min neighbors for seed node (for generation) influence a lot the graph structure
 
 # --- Logging ---
 logging:
