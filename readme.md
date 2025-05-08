@@ -5,7 +5,7 @@ This repository contains a Python implementation of the Neural Turtle Graphics (
 > **Neural Turtle Graphics for Modeling City Road Layouts**
 > Hang Chu, Daiqing Li, David Acuna, Amlan Kar, Maria Shugrina, Xinkai Wei, Ming-Yu Liu, Antonio Torralba, Sanja Fidler
 > *CVPR 2020*
-> [[Paper Link](https://arxiv.org/abs/1911.10270)]
+> [[Paper Link](https://arxiv.org/abs/1910.02055)]
 > [[Project Page](https://nv-tlabs.github.io/NTG)]
 
 ## Overview
